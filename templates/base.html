@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" content="{{ config.description }}">
+    <link rel="icon" href="{{ get_url(path='logo.svg') }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ get_url(path='site.css', cachebust=true) }}">
+    <link rel="alternate" href="{{ get_url(path='atom.xml', trailing_slash=false) }}" type="application/atom+xml" title="{{ config.title }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header page-width">
+      <a class="brand" href="{{ get_url(path='/') }}" aria-label="rust-glancer home">
+        <img src="{{ get_url(path='logo.svg') }}" width="48" height="30" alt="">
+        <span>rust-glancer</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="{{ get_url(path='/') }}#about">About</a></li>
+          <li><a href="{{ get_url(path='/') }}#quick-start">Quick start</a></li>
+          <li><a href="{{ get_url(path='/blog/') }}">Blog</a></li>
+          <li><a href="{{ get_url(path='/changelog/') }}">Changelog</a></li>
+          <li><a href="{{ config.extra.project_repository_url }}">Source</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="content" class="page-width">
+      {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="site-footer page-width">
+      <span aria-hidden="true">©</span>
+      <a href="{{ config.extra.author_url }}">{{ config.extra.author_handle }}</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ config.extra.site_repository_url }}">Site source</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ get_url(path='atom.xml', trailing_slash=false) }}">Atom</a>
+    </footer>
+  </body>
+</html>
+

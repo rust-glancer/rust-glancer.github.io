@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 80" role="img" aria-labelledby="title">
+  <title id="title">rust-glancer</title>
+  <style>
+    text { fill: #171717; }
+    @media (prefers-color-scheme: dark) { text { fill: #e8e8e5; } }
+  </style>
+  <text
+    x="64"
+    y="58"
+    text-anchor="middle"
+    font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace"
+    font-size="64"
+    font-weight="700"
+  >rg</text>
+</svg>
+

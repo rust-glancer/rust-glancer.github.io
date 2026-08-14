@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="intro" aria-labelledby="site-title">
+    <img class="intro-logo" src="{{ get_url(path='logo.svg') }}" width="128" height="80" alt="">
+    <h1 id="site-title">{{ config.title }}</h1>
+    <p>{{ config.description }}</p>
+    <a href="{{ config.extra.project_repository_url }}">Source</a>
+  </section>
+
+  <div class="prose home-prose">
+    {{ section.content | safe }}
+  </div>
+
+  {% set blog = get_section(path="blog/_index.md") %}
+  <section class="latest" aria-labelledby="latest-blog">
+    <div class="section-heading">
+      <h2 id="latest-blog">Latest blog post</h2>
+      <a href="{{ blog.permalink }}">All posts</a>
+    </div>
+    {% set post = blog.pages | first %}
+    <article class="post-row">
+      <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
+      <a href="{{ post.permalink }}">{{ post.title }}</a>
+    </article>
+  </section>
+
+  {% set changelog = get_section(path="changelog/_index.md") %}
+  <section class="latest" aria-labelledby="latest-changelog">
+    <div class="section-heading">
+      <h2 id="latest-changelog">Latest changelog</h2>
+      <a href="{{ changelog.permalink }}">All changes</a>
+    </div>
+    {% set entry = changelog.pages | first %}
+    <article class="post-row">
+      <time datetime="{{ entry.date }}">{{ entry.date | date(format="%Y-%m-%d") }}</time>
+      <a href="{{ entry.permalink }}">{{ entry.title }}</a>
+    </article>
+  </section>
+{% endblock content %}
+

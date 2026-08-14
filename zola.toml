@@ -1,0 +1,21 @@
+base_url = "https://rust-glancer.github.io"
+title = "rust-glancer"
+description = "Website for Rust Glancer LSP"
+default_language = "en"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+compile_sass = false
+build_search_index = false
+
+[markdown.highlighting]
+error_on_missing_language = true
+style = "inline"
+light_theme = "github-light"
+dark_theme = "github-dark"
+
+[extra]
+project_repository_url = "https://github.com/rust-glancer/rust-glancer"
+site_repository_url = "https://github.com/rust-glancer/rust-glancer.github.io"
+author_url = "https://github.com/popzxc"
+author_handle = "@popzxc"
+

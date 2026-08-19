@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "17 4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -19,8 +21,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out website
         uses: actions/checkout@v6.0.1
+
+      - name: Check out rust-glancer
+        uses: actions/checkout@v6.0.1
+        with:
+          repository: rust-glancer/rust-glancer
+          ref: main
+          path: rust-glancer
+
+      - name: Install mdBook
+        uses: taiki-e/install-action@16b05812d776ae1dfaabc8277e421fb6d2506419 # v2.82.7
+        with:
+          tool: mdbook@0.5.4
+
+      # Zola copies static files verbatim, so the book becomes /docs/ in the
+      # same atomic Pages artifact as the main website.
+      - name: Build documentation
+        run: mdbook build rust-glancer/docs --dest-dir static/docs
 
       - name: Build Zola and upload Pages artifact
         uses: getzola/github-pages@066755243e69f508fd1a74739fbf1a65f656c790
@@ -38,4 +57,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

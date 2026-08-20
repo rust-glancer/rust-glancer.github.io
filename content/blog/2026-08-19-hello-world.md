@@ -20,6 +20,15 @@ It has two main features:
 
 ![Rust Glancer memory usage remaining below 100 MB](/assets/2026-08-19-hello-world/memory.png)
 
+These features make Rust Glancer suitable for the older computers: I have tested it on my old MacBook Pro M1 2020 with 8GB RAM, and it was pretty good.
+
+| Machine | LSP | Base indexing (engine usable) | Full indexing |
+| --- | --- | ---: | ---: |
+| MacBook Pro M4 Max, 36GB (2025) | Rust Glancer | 5 seconds | 8 seconds |
+| MacBook Pro M4 Max, 36GB (2025) | rust-analyzer | 6 seconds | 13 seconds |
+| MacBook Pro M1, 8GB (2020) | Rust Glancer | 6 seconds | 9 seconds |
+| MacBook Pro M1, 8GB (2020) | rust-analyzer | 7 seconds | 14 seconds |
+
 As you can imagine, 4 months is not a lot of time for a project as big as a Rust LSP. Rust Glancer is not a complete LSP yet, it has a lot of missing functionality, it has some known bugs, and it has a lot of things I want to improve.
 
 At the same time, it is already pretty capable: it has a full indexing pipeline with type inference and a trait solver (chalk), most of the "normal" Rust syntax is supported, and most of the "normal" LSP actions do work as well: goto definition, hover, inlay hints, completions, you name it.
@@ -82,6 +91,8 @@ Probably, the three biggest milestones were:
 2. Proper type inference engine. It was a big "oh wow" moment when I truly realized how type inference works (in short: we "link" all related type bindings in a big inference table, and then we try to get evidence from all possible places, where providing evidence can solve types for multiple places). It was the moment that probably brought me the most joy during the work on this project so far.
 3. Proper trait solving engine. I initially wrote "it's highly unlikely that we will have a trait solver in this project", but then I _really_ wanted to get the abovementioned iterator example to work properly. I resisted integrating trait solver for a while, trying to have naive hacks like naive trait impl matching + specialized handlers for `std` traits, but it was getting more and more complex while working pretty poorly. Then I gave up and integrated Chalk, which turned out to be significantly simpler than the whole hierarchy I have built. Making Chalk fast was another challenge, though.
 
+Somewhat separately, probably the thing I am most proud of (and the thing that made Rust Glancer possible -- had I not designed it early, the project would die very quickly) is a cool profiling stack that can measure performance, memory usage (both natively, tracking actual allocated objects, and with jemalloc), profile data on demand, and compare LSP against rust-analyzer, as well as a set of benchmarks running in CI. If you're interested, it's partially covered in the docs ([1](https://rust-glancer.github.io/docs/development/MEMORY.html#memory-tooling--techniques), [2](https://rust-glancer.github.io/docs/development/PROFILING.html)), but I'll work on a more detailed coverage later.
+
 Probably ~1.5 months ago I started using Rust Glancer as my daily driver instead of rust-analyzer. Now, I am happy with its state enough to present it to a larger audience.
 
 ## LLM use
@@ -117,5 +128,7 @@ So in the coming releases, you might expect:
 - Potentially proc macro support (I have some weird idea that will not require actual code execution, but it'll take a while to prepare).
 
 Some features are unlikely to be supported though, such as build scripts / proc macros support via proc macro invocation (e.g. anything that requires untrusted code execution). I also don't plan to work on things that are unnecessary at the current state of the project, such as migrating to the new trait solver. Niche things like particular nightly features will likely be postponed until the project reaches some degree of maturity with stable Rust.
+
+Additionally, there is a lot of cool little tricks I've done in Rust Glancer that I'm somewhat proud of (aligning allocation lifetimes to reduce memory fragmentation, engine-as-a-subprocess model to help with both memory fragmentation and multi-workspace projects, sharded cache, and others), so if people will be interested, I'll be happy to write some blogs telling about how Rust Glancer works under the hood. It's partially covered in the docs already ([1](https://rust-glancer.github.io/docs/architecture/ARCHITECTURE.html), [2](https://rust-glancer.github.io/docs/development/MEMORY.html)) if you want to get some info right now.
 
 But in any case, I hope that the project can be helpful for some folks already, and for more folks in the future.

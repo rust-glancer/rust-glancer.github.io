@@ -5,5 +5,5 @@ template = "section.html"
 page_template = "page.html"
 +++
 
-The changelogs will appear here (once we have some)
+The project changelogs (huh)
 

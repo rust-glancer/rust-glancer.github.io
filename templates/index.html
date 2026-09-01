@@ -15,27 +15,32 @@
   {% set blog = get_section(path="blog/_index.md") %}
   <section class="latest" aria-labelledby="latest-blog">
     <div class="section-heading">
-      <h2 id="latest-blog">Latest blog post</h2>
+      <h2 id="latest-blog">Latest blog posts</h2>
       <a href="{{ blog.permalink }}">All posts</a>
     </div>
-    {% set post = blog.pages | first %}
-    <article class="post-row">
-      <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
-      <a href="{{ post.permalink }}">{{ post.title }}</a>
-    </article>
+    {% for post in blog.pages %}
+      {% if loop.index <= 3 %}
+        <article class="post-row">
+          <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
+          <a href="{{ post.permalink }}">{{ post.title }}</a>
+        </article>
+      {% endif %}
+    {% endfor %}
   </section>
 
   {% set changelog = get_section(path="changelog/_index.md") %}
   <section class="latest" aria-labelledby="latest-changelog">
     <div class="section-heading">
-      <h2 id="latest-changelog">Latest changelog</h2>
+      <h2 id="latest-changelog">Latest changelog entries</h2>
       <a href="{{ changelog.permalink }}">All changes</a>
     </div>
-    {% set entry = changelog.pages | first %}
-    <article class="post-row">
-      <time datetime="{{ entry.date }}">{{ entry.date | date(format="%Y-%m-%d") }}</time>
-      <a href="{{ entry.permalink }}">{{ entry.title }}</a>
-    </article>
+    {% for entry in changelog.pages %}
+      {% if loop.index <= 3 %}
+        <article class="post-row">
+          <time datetime="{{ entry.date }}">{{ entry.date | date(format="%Y-%m-%d") }}</time>
+          <a href="{{ entry.permalink }}">{{ entry.title }}</a>
+        </article>
+      {% endif %}
+    {% endfor %}
   </section>
 {% endblock content %}
-

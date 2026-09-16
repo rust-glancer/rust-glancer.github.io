@@ -4,7 +4,7 @@ date = 2026-09-16
 description = "An under-the-hood walkthrough for a Rust LSP"
 +++
 
-A long, long time ago, [mighty matklad](https://github.com/matklad) used to write great posts about how does Rust tooling works. Those were great times, but alas, the last [rust-analyzer blog post dates 2023](https://rust-analyzer.github.io/blog)
+A long, long time ago, [mighty matklad](https://github.com/matklad) used to write great posts about how Rust tooling works. Those were great times, but alas, the last [rust-analyzer blog post dates 2023](https://rust-analyzer.github.io/blog)
 
 I am no matklad, but I'm building [Rust Glancer](https://github.com/rust-glancer/rust-glancer), an experimental Rust LSP, for quite a while now. It's probably the most interesting and ambitious project I've worked on, and I want to share some things I've learned while working on it.
 

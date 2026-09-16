@@ -11,4 +11,4 @@ It uses a different approach compared to [rust-analyzer](https://rust-analyzer.g
 
 ## Quick start {#quick-start}
 
-Check out the [docs](https://rust-glancer.github.io/docs/).
+Check out the [docs](https://rust-glancer.github.io/docs/usage/INSTALL.html).

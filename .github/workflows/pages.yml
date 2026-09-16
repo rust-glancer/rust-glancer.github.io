@@ -46,6 +46,8 @@ jobs:
         with:
           zola_version: v0.23.3
           check_links: true
+          # External hosts can reject CI requests even when links work in a browser.
+          check_flags: --skip-external-links
 
   deploy:
     runs-on: ubuntu-latest

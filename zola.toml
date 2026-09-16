@@ -7,6 +7,9 @@ feed_filenames = ["atom.xml"]
 compile_sass = false
 build_search_index = false
 
+[markdown]
+github_alerts = true
+
 [markdown.highlighting]
 error_on_missing_language = true
 style = "inline"

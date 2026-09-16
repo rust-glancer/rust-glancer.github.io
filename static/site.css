@@ -307,6 +307,23 @@ blockquote {
   color: var(--muted);
 }
 
+.prose blockquote[class^="markdown-alert-"] {
+  margin-inline: 0;
+  padding: 0.85rem 1rem;
+  border-left-color: var(--link);
+  border-radius: 2px;
+  background: var(--inline-code);
+  color: var(--foreground);
+}
+
+.prose blockquote[class^="markdown-alert-"] > :first-child {
+  margin-top: 0;
+}
+
+.prose blockquote[class^="markdown-alert-"] > :last-child {
+  margin-bottom: 0;
+}
+
 table {
   display: block;
   max-width: 100%;

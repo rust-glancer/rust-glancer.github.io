@@ -180,7 +180,7 @@ Consider a perfectly normal `fn fo` at the end of the file. What we need to do i
 
 So it is another norm of LSP: you have to consider that the state is _incorrect at the moment_ and _can be improved_. How far you will go depends just on your imagination. Once again you're trying to guess the user's intent rather than work in a strict world of correct code.
 
-But it doesn't stop there! You don't only need to work with incorrect code. Users use more than just the compiler: they use cargo, they use rustdoc, they write documentation in markdown. As a tooling author, you need to know how to work with cargo JSON output to extract diagnostics, remember that rustdoc supports [disambugulators](https://doc.rust-lang.org/rustdoc/write-documentation/linking-to-items-by-name.html#namespaces-and-disambiguators), be able to extract and run the tests for user, and so on.
+But it doesn't stop there! You don't only need to work with incorrect code. Users use more than just the compiler: they use cargo, they use rustdoc, they write documentation in markdown. As a tooling author, you need to know how to work with cargo JSON output to extract diagnostics, remember that rustdoc supports [disambiguators](https://doc.rust-lang.org/rustdoc/write-documentation/linking-to-items-by-name.html#namespaces-and-disambiguators), be able to extract and run the tests for user, and so on.
 
 It's less of depth expansion, and more of width expansion: you need to think about the tooling user uses, and do all the necessary to make the flow feel "fluent" and your LSP "just do the thing".
 

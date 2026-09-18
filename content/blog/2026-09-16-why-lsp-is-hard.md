@@ -215,7 +215,7 @@ This is a long article, isn't it? And I could go on for much longer.
 
 I hope that it does not look as a set of inconsistent anecdotes, becuase the intent was to show that there are way too many angles from which you could look at LSP, and each angle can have multiple approaches to do the thing.
 
-It creates a pretty big contrast with the compiler or tools like `cargo fmt` / `cargo deny`: they are fairly deterministic in their _goal_, and the indedned behavior is more or less clear and configurable. When user invokes these tools, they know exactly what they need, and the invocation is the _act of showing the intent_.
+It creates a pretty big contrast with the compiler or tools like `cargo fmt` / `cargo deny`: they are fairly deterministic in their _goal_, and the intended behavior is more or less clear and configurable. When user invokes these tools, they know exactly what they need, and the invocation is the _act of showing the intent_.
 
 LSP is more of a guess game, where at each step all you are presented with is the potentially incorrect state, and your goal is to guess what would make sense for the user.
 

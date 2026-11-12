@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="1220" viewBox="0 0 1360 1220" role="img" aria-labelledby="title desc">
+  <title id="title">Ajika storage</title>
+  <desc id="desc">Metadata and identity assignments stay in redb. Small values are inline; larger values are independently readable frames in immutable packs. A write synchronizes pack files before committing records and value locations in redb. Maintenance copies live frames to new packs, commits their updated locations and scan progress, then deletes empty packs.</desc>
+  <defs>
+    <style>
+      text { font-family: "Chalkboard", "Comic Sans MS", cursive; font-size: 24px; fill: #e7e5e1; text-anchor: middle; }
+      .small { font-size: 20px; }
+      .ink { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .box { fill: #18191b; stroke: #e7e5e1; stroke-width: 1.8; }
+      .arrow { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#e7e5e1" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#8eb8df" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#dfa47c" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#8bc49a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#e59389" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1360" height="1220" fill="#18191b" />
+  <g id="write">
+    <path d="M 220 146 C 217 212 359 187 433 210 Q 498 233 578 280" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <path d="M 771 108 Q 852 103 948 108" class="arrow" style="stroke: #dfa47c; marker-end: url(#arrow-orange)" />
+    <path d="M 1110 146 Q 1118 208 1049 205 C 940 210 746 191 701 238" class="arrow" style="stroke: #dfa47c; marker-end: url(#arrow-orange)" />
+    <path d="M 580 280 C 482 276 417 301 362 346 Q 342 369 340 408" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <path d="M 821 280 C 948 276 1079 284 1089 396" class="arrow" style="stroke: #dfa47c; marker-end: url(#arrow-orange)" />
+    <g transform="rotate(-0.23 220 107.5)">
+      <path d="M 70.43 68.23 Q 215.74 71.16 371.80 69.15 Q 368.92 106.65 368.90 143.29 Q 226.69 144.52 71.14 145.94 Q 69.46 102.55 70.43 68.23" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 69.45 68.31 Q 214.53 68.88 368.74 71.40 Q 369.77 109.86 371.73 145.59 Q 225.10 143.73 69.09 145.85 Q 70.04 103.02 69.45 68.31" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="220" y="117" transform="rotate(-0.50 220 117)" style="fill: #8eb8df">metadata + identities</text>
+    <g transform="rotate(-0.63 635 107.5)">
+      <path d="M 499.46 69.61 Q 628.05 69.10 769.26 69.70 Q 769.98 108.49 771.26 144.26 Q 638.94 144.29 498.98 145.27 Q 499.91 103.11 499.46 69.61" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 498.54 70.90 Q 630.05 70.44 770.73 71.28 Q 768.33 107.13 769.90 145.72 Q 640.42 145.02 499.31 144.08 Q 501.35 105.49 498.54 70.90" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="635" y="117" transform="rotate(-0.08 635 117)" style="fill: #dfa47c">serialized values</text>
+    <g transform="rotate(-0.00 1110 107.5)">
+      <path d="M 949.88 68.66 Q 1103.96 68.96 1270.45 69.20 Q 1269.88 109.56 1269.32 145.13 Q 1115.75 144.95 951.32 144.97 Q 951.67 103.42 949.88 68.66" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 949.83 70.52 Q 1103.60 70.62 1269.25 68.25 Q 1269.72 106.68 1269.09 145.35 Q 1117.09 146.48 950.64 145.20 Q 949.44 103.67 949.83 70.52" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="1110" y="117" transform="rotate(-0.25 1110 117)" style="fill: #dfa47c">encode / compress</text>
+    <g transform="rotate(-0.28 700 280)">
+      <path d="M 578.57 240.13 Q 695.67 239.31 820.86 240.11 Q 819.31 282.06 818.28 319.17 Q 704.16 320.62 579.11 321.74 Q 578.58 275.82 578.57 240.13" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 579.89 240.88 Q 694.32 238.78 820.88 241.03 Q 820.27 282.25 819.62 319.82 Q 704.80 318.66 581.18 318.42 Q 578.48 277.48 579.89 240.88" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="700" y="290" transform="rotate(-0.40 700 290)" style="fill: #8eb8df">Write</text>
+    <text x="421" y="352" class="small" transform="rotate(-0.87 421 352)" style="fill: #8eb8df">commit</text>
+    <text x="1171" y="352" class="small" transform="rotate(-0.57 1171 352)" style="fill: #dfa47c">append + sync</text>
+  </g>
+  <g id="index">
+    <g>
+      <path d="M 69.83 408.73 Q 359.40 408.88 669.83 408.25 Q 668.72 593.54 670.72 768.67 Q 382.94 770.52 70.62 771.67 Q 69.93 570.22 69.83 408.73" class="ink" style="stroke: #8eb8df" />
+    </g>
+    <text x="102" y="453" style="text-anchor: start; fill: #8eb8df" transform="rotate(0.53 102 453)">index.redb</text>
+    <g transform="rotate(-0.58 217.5 522.5)">
+      <path d="M 101.34 483.59 Q 211.98 485.55 335.85 485.91 Q 335.21 522.63 336.45 558.27 Q 221.33 561.75 98.88 561.23 Q 100.37 519.23 101.34 483.59" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 100.48 484.82 Q 214.03 483.41 334.23 485.98 Q 335.86 523.76 335.68 559.26 Q 222.56 560.25 101.13 559.03 Q 99.22 518.10 100.48 484.82" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="218" y="531" transform="rotate(-0.34 218 531)" style="fill: #8eb8df">records</text>
+    <g transform="rotate(-0.38 492.5 522.5)">
+      <path d="M 365.82 484.97 Q 485.84 486.41 620.08 486.16 Q 620.88 522.88 619.35 560.18 Q 499.19 561.09 366.65 560.26 Q 365.16 518.03 365.82 484.97" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 365.18 485.20 Q 488.34 486.22 621.44 484.11 Q 620.53 521.69 619.21 560.37 Q 495.80 561.31 365.14 559.06 Q 364.72 519.66 365.18 485.20" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="492" y="531" transform="rotate(0.49 492 531)" style="fill: #8eb8df">identities</text>
+    <g transform="rotate(-0.53 360 635)">
+      <path d="M 101.48 595.57 Q 349.70 593.89 620.45 594.00 Q 618.45 637.07 619.46 675.97 Q 370.34 675.23 99.59 676.15 Q 101.01 630.60 101.48 595.57" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 100.21 594.19 Q 351.08 594.85 620.36 595.27 Q 618.55 635.20 621.00 675.32 Q 369.48 673.80 101.32 676.12 Q 101.38 629.84 100.21 594.19" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="360" y="629" transform="rotate(0.28 360 629)" style="fill: #8eb8df">values</text>
+    <text x="360" y="657" class="small" transform="rotate(0.79 360 657)">inline bytes / pack + offset</text>
+    <g transform="rotate(0.06 360 726.5)">
+      <path d="M 99.78 703.73 Q 349.10 704.51 620.26 702.46 Q 618.34 725.79 621.12 750.30 Q 371.02 748.52 100.11 749.51 Q 98.82 725.91 99.78 703.73" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 101.50 702.33 Q 348.72 703.19 621.30 705.47 Q 621.60 726.69 620.16 747.91 Q 368.71 749.50 100.17 750.36 Q 101.52 724.39 101.50 702.33" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="360" y="734" class="small" transform="rotate(-0.59 360 734)" style="fill: #8eb8df">pack inventory + scan cursor</text>
+  </g>
+  <g id="packs">
+    <g transform="rotate(-0.58 1092 548)">
+      <path d="M 912.25 399.55 Q 1084.71 398.52 1272.05 397.81 Q 1271.72 550.04 1271.81 699.07 Q 1100.07 696.31 910.98 696.46 Q 910.53 531.23 912.25 399.55" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 912.82 396.93 Q 1085.38 399.19 1270.76 397.09 Q 1270.62 549.68 1273.73 699.36 Q 1100.89 696.86 911.73 698.19 Q 910.44 533.53 912.82 396.93" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <g transform="rotate(0.49 1080 560)">
+      <path d="M 901.54 411.31 Q 1072.09 411.08 1258.94 409.86 Q 1258.46 561.54 1258.49 709.48 Q 1088.08 710.21 898.80 709.24 Q 899.51 543.62 901.54 411.31" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 898.79 411.61 Q 1073.81 410.65 1258.53 410.04 Q 1261.04 564.15 1258.99 709.56 Q 1087.60 708.74 900.37 708.47 Q 901.14 544.00 898.79 411.61" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="1080" y="454" transform="rotate(0.14 1080 454)" style="fill: #dfa47c">packs/</text>
+    <g transform="rotate(-0.18 970 565)">
+      <path d="M 929.72 510.35 Q 970.12 510.58 1010.15 508.70 Q 1012.00 566.91 1009.90 621.15 Q 971.20 618.85 927.75 619.80 Q 930.03 559.58 929.72 510.35" class="ink" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 928.29 510.51 Q 966.63 510.84 1011.66 509.85 Q 1009.44 565.76 1012.45 621.55 Q 972.57 620.74 930.74 619.18 Q 930.37 560.99 928.29 510.51" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <g transform="rotate(0.44 1080 565)">
+      <path d="M 1038.04 510.53 Q 1076.67 509.05 1122.22 508.72 Q 1121.52 565.01 1122.69 621.56 Q 1083.31 620.32 1040.79 618.75 Q 1039.29 558.07 1038.04 510.53" class="ink" style="fill: #18191b; stroke: #e59389" />
+      <path d="M 1039.35 511.76 Q 1079.19 511.05 1122.46 511.33 Q 1121.41 567.08 1119.76 619.10 Q 1082.44 620.81 1038.64 619.89 Q 1038.41 560.56 1039.35 511.76" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #e59389" />
+    </g>
+    <g transform="rotate(-0.07 1190 565)">
+      <path d="M 1148.39 509.00 Q 1188.21 511.38 1230.08 508.32 Q 1230.50 565.58 1232.44 620.13 Q 1191.89 619.29 1148.66 620.06 Q 1148.98 559.40 1148.39 509.00" class="ink" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 1150.67 510.35 Q 1187.83 510.83 1229.73 508.61 Q 1230.60 566.21 1231.45 618.61 Q 1192.17 621.56 1148.09 619.61 Q 1149.03 560.55 1150.67 510.35" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <text x="970" y="573" transform="rotate(-0.79 970 573)" style="fill: #8bc49a">A</text>
+    <text x="1080" y="573" transform="rotate(-0.25 1080 573)" style="fill: #e59389">B</text>
+    <text x="1190" y="573" transform="rotate(0.51 1190 573)" style="fill: #8bc49a">C</text>
+    <path d="M 1050 528 Q 1078 559 1110 600 M 1106 531 Q 1075 562 1050 601" class="ink" style="stroke: #e59389" />
+    <text x="1080" y="676" class="small" transform="rotate(-0.06 1080 676)">immutable frames</text>
+    <path d="M 900 561 C 797 551 725 637 622 639" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <text x="767" y="574" class="small" transform="rotate(0.82 767 574)" style="fill: #8eb8df">locations</text>
+  </g>
+  <g id="maintenance">
+    <g>
+      <path d="M 71.26 820.53 Q 660.63 818.88 1300.08 818.49 Q 1298.32 1007.37 1301.27 1189.15 Q 708.36 1190.95 69.77 1188.64 Q 70.55 988.19 71.26 820.53" class="ink" stroke-dasharray="12 7 9 8" />
+    </g>
+    <text x="102" y="865" style="text-anchor: start; fill: #8bc49a" transform="rotate(0.47 102 865)">maintain() / compact()</text>
+    <path d="M 1080 712 C 1085 773 1050 836 1055 898" class="arrow" style="stroke: #8bc49a; marker-end: url(#arrow-green)" />
+    <text x="1185" y="779" class="small" transform="rotate(-0.77 1185 779)" style="fill: #e59389">dead space</text>
+    <text x="1185" y="806" class="small" transform="rotate(0.09 1185 806)" style="fill: #dfa47c">small packs</text>
+    <path d="M 1055 982 Q 1049 1007 1055 1038" class="arrow" style="stroke: #8bc49a; marker-end: url(#arrow-green)" />
+    <path d="M 899 1080 Q 851 1075 802 1080" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <path d="M 499 1080 Q 444 1074 391 1080" class="arrow" style="stroke: #e59389; marker-end: url(#arrow-red)" />
+    <path d="M 650 1040 C 645 984 655 917 649 870 Q 649 800 550 772" class="arrow" stroke-dasharray="8 7 6 8" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <g transform="rotate(-0.62 1055 940)">
+      <path d="M 901.70 900.21 Q 1049.67 900.38 1209.67 899.45 Q 1210.89 940.59 1210.83 980.30 Q 1062.37 979.76 899.32 979.55 Q 900.20 936.77 901.70 900.21" class="ink" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 900.33 898.38 Q 1050.57 899.77 1208.59 901.00 Q 1208.71 939.02 1211.39 980.16 Q 1061.60 979.60 898.53 981.50 Q 898.29 935.54 900.33 898.38" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <text x="1055" y="949" transform="rotate(-0.40 1055 949)" style="fill: #8bc49a">copy live frames</text>
+    <g transform="rotate(0.33 1055 1080)">
+      <path d="M 900.70 1038.74 Q 1048.39 1039.02 1209.37 1038.93 Q 1208.55 1082.08 1211.26 1119.62 Q 1060.22 1120.93 900.19 1121.35 Q 900.11 1075.77 900.70 1038.74" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 900.51 1040.99 Q 1050.51 1040.52 1210.04 1040.01 Q 1208.99 1079.62 1210.80 1119.84 Q 1060.67 1119.98 898.87 1118.44 Q 899.21 1075.99 900.51 1040.99" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="1055" y="1089" transform="rotate(-0.87 1055 1089)" style="fill: #dfa47c">new packs</text>
+    <g transform="rotate(-0.01 650 1080)">
+      <path d="M 501.04 1039.37 Q 644.63 1039.24 801.75 1040.67 Q 799.89 1080.43 800.22 1118.79 Q 656.57 1121.43 501.04 1118.76 Q 500.60 1074.89 501.04 1039.37" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 501.13 1039.59 Q 643.83 1039.69 800.82 1041.26 Q 799.09 1082.39 799.01 1118.33 Q 657.11 1121.50 498.80 1118.23 Q 499.34 1074.37 501.13 1039.59" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="650" y="1089" transform="rotate(0.35 650 1089)" style="fill: #8eb8df">commit locations</text>
+    <g transform="rotate(0.53 240 1080)">
+      <path d="M 89.34 1038.20 Q 234.16 1039.47 388.56 1038.33 Q 389.77 1080.95 391.64 1120.31 Q 247.44 1119.63 91.31 1118.82 Q 91.15 1075.73 89.34 1038.20" class="ink" style="fill: #18191b; stroke: #e59389" />
+      <path d="M 90.15 1041.16 Q 232.62 1040.36 390.08 1040.01 Q 389.03 1082.31 389.46 1120.21 Q 244.99 1118.67 89.44 1118.38 Q 91.78 1074.74 90.15 1041.16" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #e59389" />
+    </g>
+    <text x="240" y="1089" transform="rotate(0.49 240 1089)" style="fill: #e59389">delete empty packs</text>
+  </g>
+</svg>

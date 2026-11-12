@@ -22,6 +22,35 @@ Add a bold label for a custom title:
 > for more precise explanations.
 ```
 
+## Tabbed code examples
+
+Set `extra.code_tabs = true` in the page front matter. Give `code_tabs` a unique
+`id`, an accessible `label`, and an explicit name for each fenced code block in
+`tabs`. Separate the blocks with `<!-- tab -->`:
+
+````markdown
+{% <code_tabs id="example" label="Example implementation" tabs={["helpers.rs", "app.rs"]} combined_label="Full example"> %}
+```rust
+fn answer() -> usize {
+    42
+}
+
+```
+<!-- tab -->
+```rust
+fn main() {
+    println!("{}", answer());
+}
+```
+{% </code_tabs> %}
+````
+
+The first tab is selected initially. Any number of tabs and any fenced code
+language are supported. Optionally supply `combined_label` to add a named view
+that concatenates blocks in the same language, without duplicating their source.
+Printing and browsers without JavaScript show that combined view, or all labeled
+blocks when no combined view was requested.
+
 ## Validation
 
 ```sh

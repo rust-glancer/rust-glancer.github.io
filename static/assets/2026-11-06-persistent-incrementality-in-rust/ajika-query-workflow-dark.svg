@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1060" viewBox="0 0 1100 1060" role="img" aria-labelledby="title desc">
+  <title id="title">A query request within one operation</title>
+  <desc id="desc">Query A asks for B(key). Its Db first looks in Frame A. A cached value lets A continue immediately. On a miss, the shared operation gets Memo B(key), loading its Record as needed. A ready value returns to Frame A; otherwise dependencies are validated. A valid, available value also returns. Otherwise B executes with a fresh Db B and Frame B in the same operation. Its result and dependencies are installed in Memo B. Returning B's value records the value and dependency in Frame A for later reads. This illustrates one child request; operation checkpointing is outside this view.</desc>
+  <defs>
+    <style>
+      text { font-family: "Chalkboard", "Comic Sans MS", cursive; }
+    </style>
+    <marker id="arrow-ink" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#e7e5e1" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#8eb8df" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#dfa47c" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#8bc49a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#92969b" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1100" height="1060" fill="#18191b" />
+  <text x="125" y="44" fill="#8eb8df" font-size="25" text-anchor="start">run(...)</text>
+  <path d="M 90 32 Q 86 54 90 78" fill="none" stroke="#8eb8df" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)" />
+  <g id="operation">
+    <path d="M 36 80 Q 533 77 1035 81 Q 1031 553 1035 1019 Q 533 1023 35 1020 Q 39 551 36 80" fill="none" stroke="#92969b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8" />
+    <text x="70" y="126" fill="#8eb8df" font-size="27" text-anchor="start">one shared Operation</text>
+    <g id="caller-db">
+      <g>
+        <path d="M 100.21 159.21 Q 518.81 161.10 969.91 160.43 Q 969.26 276.58 969.45 390.50 Q 551.65 391.22 98.88 389.20 Q 98.93 264.20 100.21 159.21" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 99.65 159.93 Q 517.15 160.36 969.75 159.24 Q 969.82 276.79 968.99 390.84 Q 552.87 390.43 100.99 389.73 Q 99.69 263.30 99.65 159.93" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="125" y="203" fill="#8eb8df" font-size="26" text-anchor="start">Db A · query A</text>
+      <g>
+        <path d="M 124.09 235.30 Q 275.34 235.55 440.28 234.70 Q 440.31 296.37 438.81 355.08 Q 289.11 355.05 125.99 355.61 Q 124.68 288.29 124.09 235.30" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 124.03 235.81 Q 276.69 235.28 439.85 235.00 Q 439.28 296.28 439.08 355.31 Q 289.14 355.44 124.34 353.94 Q 124.57 289.49 124.03 235.81" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="282" y="270" fill="#8eb8df" font-size="25" text-anchor="middle">Frame A</text>
+      <text x="282" y="306" fill="#e7e5e1" font-size="21" text-anchor="middle">reads + seen values</text>
+      <text x="282" y="334" fill="#e7e5e1" font-size="20" text-anchor="middle">look up B(key)</text>
+      <path d="M 442 295 Q 562 290 698 295" fill="none" stroke="#8bc49a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)" />
+      <text x="565" y="276" fill="#8bc49a" font-size="20" text-anchor="middle">reuse / return</text>
+      <g>
+        <path d="M 701.25 259.89 Q 806.17 260.61 919.26 258.90 Q 920.27 294.72 919.69 331.01 Q 815.37 329.01 698.91 329.28 Q 700.85 290.26 701.25 259.89" fill="#18191b" stroke="#8bc49a" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 699.29 258.98 Q 804.63 260.06 919.18 259.76 Q 920.61 296.28 919.78 330.74 Q 814.59 330.85 699.35 329.66 Q 700.21 292.66 699.29 258.98" fill="none" stroke="#8bc49a" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="810" y="304" fill="#8bc49a" font-size="25" text-anchor="middle">continue A</text>
+    </g>
+    <path d="M 220 357 Q 216 415 220 478" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" />
+    <text x="247" y="442" fill="#dfa47c" font-size="21" text-anchor="start">miss</text>
+    <g id="memo">
+      <g>
+        <path d="M 123.87 479.55 Q 274.91 479.44 440.66 480.50 Q 439.92 554.61 439.87 625.95 Q 289.09 624.06 125.17 624.94 Q 125.09 544.51 123.87 479.55" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 125.51 479.19 Q 275.68 479.32 439.39 479.17 Q 440.66 554.38 438.78 625.20 Q 287.70 625.37 124.76 625.10 Q 125.68 545.97 125.51 479.19" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="282" y="521" fill="#dfa47c" font-size="25" text-anchor="middle">Memo B(key)</text>
+      <text x="282" y="561" fill="#e7e5e1" font-size="21" text-anchor="middle">Record + loaded values</text>
+      <text x="282" y="598" fill="#92969b" font-size="20" text-anchor="middle">load Record if needed</text>
+    </g>
+    <path d="M 442 535 Q 525 540 525 500 V 355 Q 525 315 442 315" fill="none" stroke="#8bc49a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)" />
+    <text x="464" y="568" fill="#8bc49a" font-size="20" text-anchor="start">ready</text>
+    <text x="550" y="433" fill="#8bc49a" font-size="20" text-anchor="start">remember value</text>
+    <text x="550" y="459" fill="#8bc49a" font-size="20" text-anchor="start">+ dependency</text>
+    <path d="M 270 627 Q 265 669 270 713" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" />
+    <text x="295" y="679" fill="#dfa47c" font-size="20" text-anchor="start">needs validation</text>
+    <g>
+      <path d="M 124.74 715.78 Q 276.18 714.89 439.31 715.44 Q 439.36 769.77 439.33 821.20 Q 287.75 819.86 125.14 821.17 Q 125.90 761.76 124.74 715.78" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 125.35 715.93 Q 275.35 715.83 440.81 716.21 Q 439.27 769.17 439.89 821.18 Q 289.50 818.75 126.15 820.84 Q 124.44 763.46 125.35 715.93" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="282" y="756" fill="#dfa47c" font-size="25" text-anchor="middle">validate</text>
+    <text x="282" y="792" fill="#e7e5e1" font-size="23" text-anchor="middle">dependencies</text>
+    <path d="M 442 746 Q 525 747 525 702 V 500" fill="none" stroke="#8bc49a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)" />
+    <text x="457" y="731" fill="#8bc49a" font-size="20" text-anchor="start">valid</text>
+    <path d="M 442 790 Q 539 784 648 790" fill="none" stroke="#8eb8df" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)" />
+    <text x="545" y="773" fill="#8eb8df" font-size="20" text-anchor="middle">otherwise</text>
+    <g id="child-db">
+      <g>
+        <path d="M 651.21 665.10 Q 798.94 664.93 959.19 663.80 Q 959.73 782.31 960.72 894.58 Q 812.42 893.99 650.41 893.77 Q 649.27 767.53 651.21 665.10" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 651.24 665.47 Q 798.94 665.94 961.18 664.68 Q 960.94 781.75 960.53 895.85 Q 810.88 895.41 650.60 893.93 Q 650.68 767.71 651.24 665.47" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="805" y="706" fill="#8eb8df" font-size="25" text-anchor="middle">execute B(key)</text>
+      <text x="805" y="740" fill="#8eb8df" font-size="23" text-anchor="middle">new Db B</text>
+      <g>
+        <path d="M 673.78 759.22 Q 799.01 759.29 936.16 757.37 Q 935.04 812.31 934.77 865.75 Q 811.05 864.37 675.11 865.48 Q 675.24 805.17 673.78 759.22" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 674.72 757.98 Q 800.90 758.84 935.45 757.43 Q 936.14 811.87 934.58 864.11 Q 810.43 865.77 675.52 865.85 Q 675.53 806.55 674.72 757.98" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="805" y="797" fill="#8eb8df" font-size="24" text-anchor="middle">fresh Frame B</text>
+      <text x="805" y="837" fill="#e7e5e1" font-size="21" text-anchor="middle">reads + outputs</text>
+    </g>
+    <path d="M 805 897 Q 805 952 755 955 H 100 Q 75 955 75 900 V 655 Q 75 610 123 597" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" />
+    <text x="435" y="938" fill="#dfa47c" font-size="21" text-anchor="middle">record result + dependencies</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+{% component code_tabs(id, label, tabs, combined_label="") -%}
+{# Each tab owns a fenced block, so labels and languages belong to the author.
+   Trim template whitespace so Markdown cannot treat indented HTML as code. #}
+{%- set parts = body | trim | split(pat="<!-- tab -->") -%}
+{%- set tab_count = tabs | length -%}
+{%- if tab_count == 0 or parts | length != tab_count -%}
+  {{ throw(message="code_tabs requires one label per block, separated by <!-- tab -->") }}
+{%- endif -%}
+{%- set view_count = tab_count -%}
+{%- set fallback = 0 -%}
+{%- if combined_label -%}
+  {%- set view_count = tab_count + 1 -%}
+  {%- set fallback = tab_count -%}
+  {# Join adjacent fences with a blank line, retaining the first block's language. -#}
+  {%- set combined = body | trim | regex_replace(pattern="\n[[:space:]]*```[[:space:]]*<!-- tab -->[[:space:]]*```[^\n]*\n", rep="\n\n") -%}
+{%- endif -%}
+<div class="code-tabs"{% if combined_label %} data-combined{% endif %}>
+{# Without JavaScript, show the combined view or all individually labeled blocks. -#}
+<div class="code-tabs__list" role="tablist" aria-label="{{ label }}" hidden>
+{%- for index in range(end=view_count) -%}
+{%- if index < tab_count -%}{% set name = tabs[index] %}{%- else -%}{% set name = combined_label %}{%- endif %}
+<button class="code-tabs__tab" type="button" role="tab"
+  id="{{ id }}-tab-{{ index }}" aria-controls="{{ id }}-panel-{{ index }}"
+  aria-selected="{{ index == fallback }}" tabindex="{% if index == fallback %}0{% else %}-1{% endif %}">{{ name }}</button>
+{%- endfor %}
+</div>
+{%- for index in range(end=view_count) -%}
+{%- if index < tab_count -%}{% set source = parts[index] %}{%- else -%}{% set source = combined %}{%- endif %}
+<div class="code-tabs__panel" role="tabpanel"{% if index == tab_count %} data-view="combined"{% endif %}
+  id="{{ id }}-panel-{{ index }}" aria-labelledby="{{ id }}-tab-{{ index }}"
+  tabindex="0"{% if combined_label and index != fallback %} hidden{% endif %}>
+{%- if not combined_label %}
+<div class="code-tabs__label">{{ tabs[index] }}</div>
+{%- endif -%}
+{{- source | trim | markdown | safe -}}
+</div>
+{%- endfor %}
+</div>
+{% endcomponent %}

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="610" viewBox="0 0 1320 610" role="img" aria-labelledby="title desc">
+  <title id="title">A database, its revision, and its memos</title>
+  <desc id="desc">Inputs and query calls connect to a database. The database has a current revision of 1 and a memo table mapping query and key to output and the revision when that output last changed. In the initial example, a contains two words and includes b, which contains three words. The memos are word_count(a) to output 5, last changed 1; word_count(b) to output 3, last changed 1; and is_haha_number(a) to output false, last changed 1.</desc>
+  <defs>
+    <style>
+      text { font-family: "Chalkboard", "Comic Sans MS", cursive; font-size: 25px; fill: #e7e5e1; text-anchor: middle; }
+      .ink { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#dfa47c" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1320" height="610" fill="#18191b" />
+  <g id="database">
+    <g>
+      <path d="M 454.70 60.90 Q 846.18 59.88 1269.21 60.51 Q 1269.26 311.31 1269.23 551.39 Q 877.59 549.84 455.16 551.35 Q 456.03 279.93 454.70 60.90" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 455.40 61.07 Q 845.22 60.95 1270.94 61.39 Q 1269.16 310.61 1269.87 551.37 Q 879.61 548.55 456.33 550.97 Q 454.35 281.89 455.40 61.07" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="492" y="110" style="fill: #8eb8df; font-size: 28px; text-anchor: start">Database</text>
+    <text x="1227" y="110" style="fill: #dfa47c; font-size: 25px; text-anchor: end">revision = 1</text>
+    <g id="memos">
+      <text x="505" y="204" style="fill: #dfa47c; font-size: 27px; text-anchor: start">memos</text>
+      <g>
+        <path d="M 503.90 229.78 Q 846.86 229.85 1214.20 230.51 Q 1214.42 365.40 1214.19 495.77 Q 872.85 494.37 506.29 493.76 Q 504.67 348.31 503.90 229.78" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 504.64 230.20 Q 847.16 231.34 1214.43 230.79 Q 1214.88 363.95 1214.30 494.45 Q 873.89 496.49 505.90 493.79 Q 505.24 348.63 504.64 230.20" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <path d="M 506 292 Q 861 289 1214 293" fill="none" stroke="#e7e5e1" stroke-width="1.2" stroke-linecap="round" opacity=".45" />
+      <path d="M 507 356 Q 856 358 1213 355" fill="none" stroke="#e7e5e1" stroke-width="1.2" stroke-linecap="round" opacity=".45" />
+      <path d="M 506 418 Q 862 415 1213 419" fill="none" stroke="#e7e5e1" stroke-width="1.2" stroke-linecap="round" opacity=".45" />
+      <path d="M 755 232 Q 753 362 755 493" fill="none" stroke="#e7e5e1" stroke-width="1.2" stroke-linecap="round" opacity=".45" />
+      <path d="M 835 232 Q 837 364 835 493" fill="none" stroke="#e7e5e1" stroke-width="1.2" stroke-linecap="round" opacity=".45" />
+      <path d="M 985 232 Q 983 365 985 493" fill="none" stroke="#e7e5e1" stroke-width="1.2" stroke-linecap="round" opacity=".45" />
+      <text x="630" y="270" style="fill: #8eb8df; font-size: 23px; text-anchor: middle">query</text>
+      <text x="795" y="270" style="fill: #8eb8df; font-size: 23px; text-anchor: middle">key</text>
+      <text x="910" y="270" style="fill: #e7e5e1; font-size: 23px; text-anchor: middle">output</text>
+      <text x="1100" y="270" style="fill: #dfa47c; font-size: 23px; text-anchor: middle">last changed</text>
+      <text x="630" y="338" style="fill: #8eb8df; font-size: 24px; text-anchor: middle">word_count</text>
+      <text x="795" y="338" style="fill: #8eb8df; font-size: 24px; text-anchor: middle">a</text>
+      <text x="910" y="338" style="fill: #8bc49a; font-size: 26px; text-anchor: middle">5</text>
+      <text x="1100" y="338" style="fill: #dfa47c; font-size: 24px; text-anchor: middle">1</text>
+      <text x="630" y="400" style="fill: #8eb8df; font-size: 24px; text-anchor: middle">word_count</text>
+      <text x="795" y="400" style="fill: #8eb8df; font-size: 24px; text-anchor: middle">b</text>
+      <text x="910" y="400" style="fill: #8bc49a; font-size: 26px; text-anchor: middle">3</text>
+      <text x="1100" y="400" style="fill: #dfa47c; font-size: 24px; text-anchor: middle">1</text>
+      <text x="630" y="462" style="fill: #8eb8df; font-size: 24px; text-anchor: middle">is_haha_number</text>
+      <text x="795" y="462" style="fill: #8eb8df; font-size: 24px; text-anchor: middle">a</text>
+      <text x="910" y="462" style="fill: #e59389; font-size: 26px; text-anchor: middle">false</text>
+      <text x="1100" y="462" style="fill: #dfa47c; font-size: 24px; text-anchor: middle">1</text>
+    </g>
+  </g>
+  <g id="inputs">
+    <g>
+      <path d="M 56.40 80.12 Q 201.56 79.92 359.07 78.61 Q 359.69 176.91 360.83 269.52 Q 215.01 268.84 55.47 268.59 Q 54.16 164.38 56.40 80.12" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 56.43 80.54 Q 201.56 81.09 361.36 79.63 Q 361.09 176.27 360.61 270.98 Q 213.23 270.47 55.69 268.77 Q 55.79 164.59 56.43 80.54" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="208" y="116" style="fill: #dfa47c; font-size: 27px; text-anchor: middle">inputs</text>
+    <text x="208" y="160" style="fill: #e7e5e1; font-size: 22px; text-anchor: middle">a.text = "hello world"</text>
+    <text x="208" y="199" style="fill: #e7e5e1; font-size: 22px; text-anchor: middle">b.text = "one two three"</text>
+    <text x="208" y="238" style="fill: #e7e5e1; font-size: 22px; text-anchor: middle">a.includes = [b]</text>
+  </g>
+  <g id="queries">
+    <g>
+      <path d="M 53.59 341.41 Q 200.48 341.48 361.34 339.28 Q 360.05 436.59 359.73 530.87 Q 214.58 529.27 55.13 530.56 Q 55.28 424.36 53.59 341.41" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 54.67 339.98 Q 202.67 340.97 360.52 339.34 Q 361.32 436.09 359.51 528.97 Q 213.87 530.89 55.61 530.98 Q 55.61 425.96 54.67 339.98" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="208" y="376" style="fill: #8eb8df; font-size: 27px; text-anchor: middle">queries</text>
+    <text x="208" y="420" style="fill: #8eb8df; font-size: 23px; text-anchor: middle">word_count(a)</text>
+    <text x="208" y="459" style="fill: #8eb8df; font-size: 23px; text-anchor: middle">word_count(b)</text>
+    <text x="208" y="498" style="fill: #8eb8df; font-size: 23px; text-anchor: middle">is_haha_number(a)</text>
+  </g>
+  <path d="M 362 175 Q 406 171 453 175" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 362 434 C 416 434 447 386 502 385" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+</svg>

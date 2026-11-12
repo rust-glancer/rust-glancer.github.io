@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1120" viewBox="0 0 1320 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Ajika lifecycle</title>
+  <desc id="desc">Declarations register queries. The database starts an operation with a shared context. Queries have their own contexts and frames, and share the operation's memos. Successful work checkpoints into operation, session or persistent retention. Retained work can be reused in later operations.</desc>
+  <defs>
+    <style>
+  text { font-family: "Chalkboard", "Comic Sans MS", cursive; font-size: 24px; fill: #e7e5e1; text-anchor: middle; }
+  .small { font-size: 20px; }
+  .ink { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .arrow { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+  .both { marker-start: url(#arrow); }
+</style>
+    <marker id="arrow" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#e7e5e1" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#8eb8df" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#dfa47c" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#8bc49a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#e59389" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1320" height="1120" fill="#18191b" />
+  <g id="setup">
+    <g transform="rotate(0.36 175 107.5)">
+      <path d="M 71.43 68.67 Q 172.89 68.72 280.72 68.29 Q 281.08 106.79 280.87 145.94 Q 180.32 144.75 71.54 147.05 Q 68.39 103.82 71.43 68.67" class="ink" style="fill: #18191b" />
+      <path d="M 71.92 71.00 Q 170.57 69.18 281.90 68.26 Q 281.09 109.69 278.56 144.27 Q 178.38 145.18 69.44 146.65 Q 71.78 102.98 71.92 71.00" class="ink" style="stroke-width: 1.05; opacity: .38" />
+    </g>
+    <text x="175" y="117" transform="rotate(-0.41 175 117)">proc macros</text>
+    <path d="M 281 108 Q 329 104 387 108" class="arrow" />
+    <text x="335" y="89" class="small" transform="rotate(0.85 335 89)">inventory</text>
+    <g transform="rotate(0.67 495 107.5)">
+      <path d="M 388.19 68.31 Q 491.49 71.26 601.34 72.07 Q 601.51 107.27 601.02 146.78 Q 497.49 144.98 388.55 143.50 Q 389.91 104.47 388.19 68.31" class="ink" style="fill: #18191b" />
+      <path d="M 391.99 68.45 Q 490.82 72.09 601.11 70.13 Q 598.92 108.80 599.00 145.60 Q 499.82 144.54 391.24 144.59 Q 389.87 105.14 391.99 68.45" class="ink" style="stroke-width: 1.05; opacity: .38" />
+    </g>
+    <text x="495" y="117" transform="rotate(0.98 495 117)">registry</text>
+    <path d="M 601 108 C 652 104 729 111 787 107" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <g transform="rotate(-0.42 910 107.5)">
+      <path d="M 788.68 70.31 Q 904.93 71.57 1028.95 69.46 Q 1028.14 108.04 1029.21 144.78 Q 915.91 143.06 792.05 145.89 Q 791.31 103.91 788.68 70.31" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 790.32 69.62 Q 904.76 68.83 1029.17 69.13 Q 1029.31 109.96 1031.25 145.59 Q 912.77 144.00 790.18 145.81 Q 789.66 104.31 790.32 69.62" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="910" y="117" transform="rotate(0.23 910 117)" style="fill: #8eb8df">Database</text>
+    <path d="M 1032 108 Q 1067 103 1098 108" class="arrow both" style="stroke: #dfa47c; marker-end: url(#arrow-orange); marker-start: url(#arrow-orange)" />
+    <g transform="rotate(0.69 1185 107.5)">
+      <path d="M 1099.02 69.50 Q 1182.69 69.24 1270.93 69.57 Q 1267.98 108.09 1268.19 146.20 Q 1189.85 145.12 1101.68 143.79 Q 1099.77 102.39 1099.02 69.50" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 1098.10 71.36 Q 1179.72 71.82 1270.24 70.84 Q 1268.11 109.96 1271.23 143.34 Q 1187.07 143.49 1100.02 143.23 Q 1101.25 103.74 1098.10 71.36" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="1185" y="117" transform="rotate(-0.23 1185 117)" style="fill: #dfa47c">interner</text>
+    <g transform="rotate(0.35 1195 255)">
+      <path d="M 1108.97 220.65 Q 1191.40 220.62 1279.63 222.06 Q 1281.45 257.10 1279.33 288.70 Q 1196.94 288.45 1111.96 289.08 Q 1111.56 250.38 1108.97 220.65" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 1110.50 218.95 Q 1190.79 221.04 1280.46 221.87 Q 1278.90 254.74 1278.16 288.80 Q 1200.42 290.27 1109.90 289.33 Q 1111.09 252.29 1110.50 218.95" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="1195" y="264" transform="rotate(-0.89 1195 264)" style="fill: #8eb8df">inputs</text>
+    <path d="M 1150 220 C 1150 189 1143 181 1108 181 C 1070 179 1023 184 1002 178 Q 988 174 991 148" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <path d="M 850 146 Q 853 202 803 205 C 729 210 605 198 542 207 Q 498 211 501 272" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <text x="660" y="192" transform="rotate(0.74 660 192)" style="fill: #8eb8df">run</text>
+  </g>
+  <g id="operation">
+    <g>
+      <path d="M 68.55 273.09 Q 539.03 276.33 1050.98 273.85 Q 1048.88 485.84 1050.75 691.04 Q 578.50 689.28 68.90 691.87 Q 70.22 463.60 68.55 273.09" class="ink" stroke-dasharray="12 7 9 8" />
+    </g>
+    <text x="101" y="316" style="text-anchor: start; fill: #8eb8df" transform="rotate(-1.05 101 316)">Operation</text>
+    <g transform="rotate(-0.44 190 410)">
+      <path d="M 110.56 365.29 Q 188.61 364.43 268.86 366.33 Q 271.90 410.94 269.30 453.26 Q 192.97 456.79 109.40 454.78 Q 110.27 404.40 110.56 365.29" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 108.36 365.08 Q 188.76 366.56 269.17 366.19 Q 271.39 411.25 269.41 453.72 Q 194.06 455.78 108.80 453.49 Q 108.38 406.88 108.36 365.08" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="190" y="420" transform="rotate(-0.53 190 420)" style="fill: #8eb8df">Db</text>
+    <path d="M 272 410 Q 315 405 362 410" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <g transform="rotate(0.66 485 410)">
+      <path d="M 365.07 365.47 Q 481.07 363.56 605.08 364.78 Q 606.55 409.49 606.46 453.50 Q 490.26 456.64 363.22 454.93 Q 362.92 405.54 365.07 365.47" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 364.94 366.93 Q 480.14 366.72 605.96 366.44 Q 604.37 409.20 605.58 453.37 Q 490.33 453.65 365.44 456.12 Q 366.94 404.25 364.94 366.93" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="485" y="401" transform="rotate(0.51 485 401)" style="fill: #8eb8df">query A</text>
+    <text x="485" y="434" class="small" transform="rotate(0.42 485 434)">Db + Frame</text>
+    <path d="M 606 410 Q 650 404 698 410" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <g transform="rotate(-0.55 820 410)">
+      <path d="M 699.67 366.99 Q 814.17 364.90 939.50 363.16 Q 940.17 410.09 939.87 456.00 Q 825.50 453.93 700.62 455.15 Q 701.11 403.41 699.67 366.99" class="ink" style="fill: #18191b; stroke: #8eb8df" />
+      <path d="M 699.08 365.73 Q 815.44 365.02 940.12 365.49 Q 940.99 412.31 941.17 456.71 Q 825.12 453.62 699.45 456.52 Q 701.14 406.00 699.08 365.73" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8eb8df" />
+    </g>
+    <text x="820" y="401" transform="rotate(-0.69 820 401)" style="fill: #8eb8df">query B</text>
+    <text x="820" y="434" class="small" transform="rotate(1.08 820 434)">Db + Frame</text>
+    <path d="M 941 410 Q 1019 418 1021 378 C 1025 341 1014 300 1024 273 Q 1030 251 1108 255" class="arrow" style="stroke: #8eb8df; marker-end: url(#arrow-blue)" />
+    <path d="M 485 457 Q 480 495 486 538" class="arrow both" style="stroke: #dfa47c; marker-end: url(#arrow-orange); marker-start: url(#arrow-orange)" />
+    <path d="M 820 457 Q 826 495 820 538" class="arrow both" style="stroke: #dfa47c; marker-end: url(#arrow-orange); marker-start: url(#arrow-orange)" />
+    <g transform="rotate(-0.63 652.5 580)">
+      <path d="M 363.57 540.66 Q 640.67 538.69 941.98 538.87 Q 941.79 581.31 941.91 621.16 Q 662.74 618.86 366.52 619.72 Q 365.02 577.04 363.57 540.66" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 365.43 540.92 Q 641.09 539.06 940.93 538.43 Q 940.94 582.04 938.50 617.91 Q 665.74 618.68 365.14 619.12 Q 363.48 574.98 365.43 540.92" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="652" y="590" transform="rotate(0.34 652 590)" style="fill: #dfa47c">memos</text>
+  </g>
+  <g id="checkpoint">
+    <path d="M 660 622 C 654 665 665 743 659 787" class="arrow" style="stroke: #dfa47c; marker-end: url(#arrow-orange)" />
+    <text x="685" y="758" class="small" transform="rotate(0.41 685 758)" style="fill: #8bc49a">ok</text>
+    <path d="M 660 740 C 553 736 385 745 273 739 Q 218 735 220 787" class="arrow" style="stroke: #e59389; marker-end: url(#arrow-red)" />
+    <text x="412" y="725" class="small" transform="rotate(-0.59 412 725)" style="fill: #e59389">error</text>
+    <g transform="rotate(-0.73 220 825)">
+      <path d="M 111.46 791.13 Q 216.79 788.52 329.26 788.31 Q 331.47 827.70 331.88 861.44 Q 224.87 859.99 108.38 858.04 Q 110.50 823.44 111.46 791.13" class="ink" style="fill: #18191b; stroke: #e59389" />
+      <path d="M 112.02 789.65 Q 215.69 791.60 329.09 790.98 Q 330.42 825.42 329.54 858.57 Q 222.91 859.15 112.05 861.34 Q 107.94 822.58 112.02 789.65" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #e59389" />
+    </g>
+    <text x="220" y="834" transform="rotate(0.65 220 834)" style="fill: #e59389">discard</text>
+    <g transform="rotate(-0.61 660 825)">
+      <path d="M 540.32 791.77 Q 656.90 791.62 782.07 790.55 Q 778.03 824.67 780.71 860.40 Q 666.53 858.62 541.62 860.33 Q 540.39 819.91 540.32 791.77" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 539.39 790.06 Q 656.27 790.76 780.59 790.88 Q 779.38 825.01 782.01 860.72 Q 665.05 861.96 541.53 860.93 Q 542.01 821.01 539.39 790.06" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="660" y="834" transform="rotate(-1.04 660 834)" style="fill: #dfa47c">checkpoint</text>
+    <path d="M 660 862 Q 663 882 660 900 C 658 923 648 932 621 932 C 515 937 356 925 284 931 Q 239 931 240 987" class="arrow" />
+    <path d="M 660 900 C 653 922 657 953 660 987" class="arrow" style="stroke: #8bc49a; marker-end: url(#arrow-green)" />
+    <path d="M 660 900 Q 667 928 702 930 C 795 929 971 937 1043 932 Q 1083 932 1080 987" class="arrow" style="stroke: #dfa47c; marker-end: url(#arrow-orange)" />
+    <text x="258" y="968" class="small" style="text-anchor: start; fill: #8eb8df" transform="rotate(0.22 258 968)">Operation</text>
+    <text x="678" y="968" class="small" style="text-anchor: start; fill: #8bc49a" transform="rotate(-1.05 678 968)">Session</text>
+    <text x="1098" y="968" class="small" style="text-anchor: start; fill: #dfa47c" transform="rotate(0.63 1098 968)">Persistent</text>
+    <g transform="rotate(0.72 240 1030)">
+      <path d="M 130.32 989.69 Q 235.19 988.11 351.63 991.99 Q 349.49 1032.68 348.45 1069.84 Q 246.47 1070.56 128.56 1070.57 Q 128.01 1026.93 130.32 989.69" class="ink" style="fill: #18191b" />
+      <path d="M 130.37 990.61 Q 236.34 988.31 351.61 991.11 Q 351.65 1029.67 348.86 1070.93 Q 246.17 1070.29 128.92 1069.75 Q 128.91 1025.93 130.37 990.61" class="ink" style="stroke-width: 1.05; opacity: .38" />
+    </g>
+    <text x="240" y="1039" transform="rotate(0.20 240 1039)">drop</text>
+    <g transform="rotate(0.78 660 1030)">
+      <path d="M 550.75 988.75 Q 657.35 991.58 769.59 987.90 Q 770.70 1030.06 768.44 1071.72 Q 663.98 1068.59 549.09 1072.08 Q 549.38 1025.88 550.75 988.75" class="ink" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 548.96 988.24 Q 654.05 988.15 769.81 989.71 Q 770.86 1032.20 771.57 1068.49 Q 664.64 1068.50 549.14 1069.52 Q 549.55 1027.44 548.96 988.24" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <text x="660" y="1039" transform="rotate(0.15 660 1039)" style="fill: #8bc49a">session memory</text>
+    <g transform="rotate(-0.13 1080 1030)">
+      <path d="M 968.57 990.42 Q 1074.59 991.70 1188.35 988.55 Q 1188.17 1029.95 1191.19 1068.24 Q 1084.86 1071.67 968.87 1071.03 Q 970.94 1027.95 968.57 990.42" class="ink" style="fill: #18191b; stroke: #dfa47c" />
+      <path d="M 971.48 990.54 Q 1075.29 989.45 1188.41 988.12 Q 1190.61 1029.89 1188.56 1069.91 Q 1082.91 1070.57 971.90 1069.46 Q 968.04 1024.60 971.48 990.54" class="ink" style="stroke-width: 1.05; opacity: .38; stroke: #dfa47c" />
+    </g>
+    <text x="1080" y="1024" transform="rotate(-0.28 1080 1024)" style="fill: #dfa47c">backend</text>
+    <text x="1080" y="1054" class="small" transform="rotate(0.62 1080 1054)">memory / disk</text>
+  </g>
+  <g id="reuse">
+    <path d="M 1192 1030 Q 1294 1035 1290 995 Q 1289 990 1290 950 C 1287 870 1293 710 1290 613 Q 1291 577 1251 579 C 1160 575 1042 585 943 580" class="arrow" stroke-dasharray="8 7 6 8" style="stroke: #8bc49a; marker-end: url(#arrow-green); stroke: #8bc49a" />
+    <path d="M 772 1031 Q 848 1023 850 1060 Q 848 1099 887 1100 C 988 1105 1159 1096 1253 1101 Q 1295 1104 1290 1075 C 1289 1037 1292 986 1290 950" fill="none" stroke="#e7e5e1" stroke-width="1.8" stroke-dasharray="8 7 6 8" stroke-linejoin="round" style="stroke: #8bc49a" />
+    <text x="1158" y="559" class="small" transform="rotate(-1.02 1158 559)" style="fill: #8bc49a">validate / reuse</text>
+  </g>
+</svg>

@@ -286,6 +286,70 @@ pre code[data-name]::before {
   font-size: 0.75rem;
 }
 
+.code-tabs {
+  margin-block: 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.code-tabs [hidden] {
+  display: none;
+}
+
+.code-tabs__list {
+  display: flex;
+  gap: 1.25rem;
+  padding-inline: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.code-tabs__tab {
+  margin-bottom: -1px;
+  padding: 0.55rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.code-tabs__tab:hover,
+.code-tabs__tab[aria-selected="true"] {
+  color: var(--foreground);
+}
+
+.code-tabs__tab[aria-selected="true"] {
+  border-bottom-color: var(--link);
+}
+
+.code-tabs__tab:focus-visible,
+.code-tabs__panel:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: -2px;
+}
+
+.code-tabs__panel pre {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.code-tabs__label {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+.code-tabs[data-enhanced] .code-tabs__label {
+  display: none;
+}
+
 .giallo-l {
   display: inline-block;
   min-height: 1lh;
@@ -394,5 +458,17 @@ hr {
   main {
     min-height: auto;
     padding-block: 1rem;
+  }
+
+  /* Paper needs all the code, whichever tab was selected on screen. */
+  .code-tabs__list,
+  .code-tabs[data-combined] .code-tabs__panel {
+    display: none !important;
+  }
+
+  .code-tabs__panel[data-view="combined"],
+  .code-tabs:not([data-combined]) .code-tabs__panel,
+  .code-tabs__label {
+    display: block !important;
   }
 }

@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="810" viewBox="0 0 1360 810" role="img" aria-labelledby="title desc">
+  <title id="title">Direct values and output handles</title>
+  <desc id="desc">Two ways of reading cached results. Above: a directly returned object contains A, B and C. Deserializing it loads all three, even if the caller only reads B. Below: the returned object contains small handles hA, hB and hC. Deserializing the handles does not load their payloads. Calling hB.value(db) loads and deserializes B on demand, while A and C remain on disk. The drawing illustrates reads of stored results, not execution of the producer query.</desc>
+  <defs>
+    <style>
+      text { font-family: "Chalkboard", "Comic Sans MS", cursive; font-size: 25px; }
+    </style>
+    <marker id="arrow-ink" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#e7e5e1" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#8eb8df" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#dfa47c" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#858b93" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1360" height="810" fill="#18191b" />
+  <text x="42" y="44" fill="#e7e5e1" font-size="27" text-anchor="start">direct value</text>
+  <text x="220" y="95" fill="#dfa47c" font-size="22" text-anchor="middle">on disk</text>
+  <text x="720" y="95" fill="#8eb8df" font-size="22" text-anchor="middle">in memory</text>
+  <text x="1180" y="95" fill="#8eb8df" font-size="22" text-anchor="middle">access</text>
+  <g id="direct-value">
+    <g transform="rotate(0.06 220 212.5)">
+      <path d="M 69.27 131.12 Q 215.02 129.92 370.39 129.31 Q 369.33 213.64 370.46 294.31 Q 227.13 293.97 69.26 294.01 Q 70.65 203.93 69.27 131.12" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 69.93 129.58 Q 214.33 129.77 369.30 129.83 Q 369.53 213.22 370.78 295.43 Q 226.40 295.92 69.75 294.71 Q 69.82 204.02 69.93 129.58" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="220" y="169" fill="#dfa47c" font-size="25" text-anchor="middle">object</text>
+    <g transform="rotate(-0.25 720 212.5)">
+      <path d="M 570.28 129.21 Q 714.51 130.26 869.72 130.28 Q 870.16 213.05 870.07 295.29 Q 726.05 295.91 570.56 294.71 Q 569.34 203.36 570.28 129.21" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 570.74 130.46 Q 714.26 129.86 870.00 129.33 Q 870.07 213.30 870.29 295.31 Q 726.41 294.39 569.02 294.60 Q 570.45 204.27 570.74 130.46" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="720" y="169" fill="#8eb8df" font-size="25" text-anchor="middle">whole object</text>
+    <g transform="rotate(0.30 127.5 232.5)">
+      <path d="M 89.73 195.77 Q 125.39 194.96 164.46 195.10 Q 163.98 233.05 164.56 268.90 Q 129.76 270.99 89.16 270.32 Q 90.07 228.57 89.73 195.77" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 90.22 195.39 Q 125.47 194.67 165.02 196.18 Q 166.03 233.92 164.90 270.98 Q 130.15 270.92 89.27 269.79 Q 89.35 228.63 90.22 195.39" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="127" y="242" fill="#dfa47c" font-size="26" text-anchor="middle">A</text>
+    <g transform="rotate(0.01 627.5 232.5)">
+      <path d="M 589.25 196.09 Q 626.32 195.22 666.06 194.02 Q 665.70 232.59 664.40 269.57 Q 629.57 271.06 590.49 269.56 Q 589.11 228.24 589.25 196.09" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 589.32 195.01 Q 626.02 194.08 664.30 195.91 Q 665.48 232.28 665.88 269.88 Q 628.72 270.73 590.45 269.85 Q 589.72 228.86 589.32 195.01" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="627" y="242" fill="#8eb8df" font-size="26" text-anchor="middle">A</text>
+    <g transform="rotate(0.23 222.5 232.5)">
+      <path d="M 184.31 196.06 Q 220.99 194.75 260.28 194.21 Q 259.26 233.06 259.35 270.41 Q 223.80 269.72 184.47 269.33 Q 185.52 229.72 184.31 196.06" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 184.64 195.73 Q 220.55 195.62 259.37 195.16 Q 259.78 234.14 260.63 269.06 Q 223.04 269.90 184.32 269.37 Q 186.08 229.81 184.64 195.73" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="222" y="242" fill="#dfa47c" font-size="26" text-anchor="middle">B</text>
+    <g transform="rotate(-0.29 722.5 232.5)">
+      <path d="M 685.20 194.75 Q 722.00 195.27 760.05 196.05 Q 759.49 234.09 759.81 270.42 Q 725.12 270.74 685.25 270.73 Q 683.86 228.58 685.20 194.75" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 685.86 195.61 Q 720.88 194.35 759.63 194.83 Q 759.08 234.30 760.36 270.07 Q 723.24 269.57 684.79 269.15 Q 684.60 228.43 685.86 195.61" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="722" y="242" fill="#8eb8df" font-size="26" text-anchor="middle">B</text>
+    <g transform="rotate(-0.01 317.5 232.5)">
+      <path d="M 280.40 195.29 Q 316.48 195.97 355.60 194.19 Q 354.33 233.14 354.74 271.11 Q 319.55 269.92 279.64 269.35 Q 280.25 229.77 280.40 195.29" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 279.20 194.89 Q 315.63 195.26 354.41 193.96 Q 355.42 232.79 355.35 270.98 Q 319.20 270.99 280.73 268.95 Q 279.39 229.14 279.20 194.89" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="317" y="242" fill="#dfa47c" font-size="26" text-anchor="middle">C</text>
+    <g transform="rotate(0.01 817.5 232.5)">
+      <path d="M 780.23 194.53 Q 817.03 195.55 855.63 194.90 Q 855.81 233.81 855.22 269.05 Q 818.88 271.13 780.14 269.71 Q 780.31 227.89 780.23 194.53" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 779.59 195.67 Q 815.93 194.73 856.14 195.05 Q 854.88 232.25 855.23 269.99 Q 818.48 271.04 780.29 270.10 Q 780.87 228.50 779.59 195.67" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="817" y="242" fill="#8eb8df" font-size="26" text-anchor="middle">C</text>
+    <path d="M 372 215 Q 470 210 568 215" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" opacity="1" />
+    <text x="470" y="190" fill="#e7e5e1" font-size="21" text-anchor="middle">deserialize</text>
+    <path d="M 872 232 Q 987 227 1108 232" fill="none" stroke="#8eb8df" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)" opacity="1" />
+    <text x="990" y="207" fill="#e7e5e1" font-size="21" text-anchor="middle">read B</text>
+    <g transform="rotate(0.34 1180 230)">
+      <path d="M 1109.90 190.53 Q 1177.76 189.32 1248.99 190.25 Q 1249.09 230.52 1250.94 270.89 Q 1181.88 269.00 1109.33 270.79 Q 1108.86 225.34 1109.90 190.53" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1109.06 189.11 Q 1177.26 189.24 1249.78 190.56 Q 1250.54 230.60 1250.69 270.17 Q 1183.58 269.40 1109.69 270.19 Q 1111.07 226.28 1109.06 189.11" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1180" y="241" fill="#8eb8df" font-size="27" text-anchor="middle">B</text>
+  </g>
+  <text x="42" y="398" fill="#e7e5e1" font-size="27" text-anchor="start">output handles</text>
+  <g id="output-handles">
+    <g transform="rotate(-0.30 220 502.5)">
+      <path d="M 69.58 448.81 Q 213.48 450.61 370.47 449.93 Q 370.61 503.43 370.88 555.26 Q 225.14 555.16 69.94 555.09 Q 69.32 497.72 69.58 448.81" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 69.25 449.52 Q 213.38 449.44 369.23 450.61 Q 370.40 502.42 370.18 553.99 Q 226.34 554.78 70.09 555.63 Q 70.67 497.69 69.25 449.52" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="220" y="483" fill="#dfa47c" font-size="24" text-anchor="middle">handle object</text>
+    <g transform="rotate(0.18 720 502.5)">
+      <path d="M 570.35 449.78 Q 713.28 450.42 871.13 449.83 Q 870.84 502.44 870.07 554.28 Q 725.99 555.27 570.85 555.06 Q 570.89 496.83 570.35 449.78" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 569.11 449.92 Q 714.52 450.50 868.89 449.40 Q 869.41 503.48 870.87 554.45 Q 724.91 555.96 570.89 555.65 Q 568.89 496.68 569.11 449.92" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="720" y="483" fill="#8eb8df" font-size="24" text-anchor="middle">handles only</text>
+    <g transform="rotate(-0.08 127.5 522.5)">
+      <path d="M 90.43 505.54 Q 125.77 504.20 163.85 504.50 Q 163.90 521.98 165.10 539.96 Q 129.84 539.10 88.98 539.11 Q 89.79 519.88 90.43 505.54" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 90.66 505.20 Q 127.20 504.48 166.09 504.60 Q 165.67 523.67 164.51 539.56 Q 127.81 540.35 90.01 540.34 Q 88.83 519.60 90.66 505.20" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="127" y="530" fill="#dfa47c" font-size="22" text-anchor="middle">hA</text>
+    <g transform="rotate(0.17 627.5 522.5)">
+      <path d="M 589.36 504.40 Q 625.46 504.76 664.98 505.50 Q 664.37 523.80 664.74 539.73 Q 628.26 540.20 590.39 539.30 Q 590.49 520.82 589.36 504.40" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 589.52 504.56 Q 625.00 505.64 666.19 505.52 Q 664.35 522.43 665.59 539.00 Q 629.20 540.37 590.07 539.24 Q 589.05 519.57 589.52 504.56" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="627" y="530" fill="#8eb8df" font-size="22" text-anchor="middle">hA</text>
+    <g transform="rotate(0.05 222.5 522.5)">
+      <path d="M 185.58 503.85 Q 221.92 505.32 260.37 505.83 Q 259.62 523.57 260.43 539.12 Q 224.50 540.23 185.77 540.79 Q 185.39 521.01 185.58 503.85" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 186.03 504.23 Q 220.20 505.37 260.42 506.11 Q 260.52 522.94 260.96 539.11 Q 223.38 541.15 185.51 540.33 Q 185.05 519.70 186.03 504.23" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="222" y="530" fill="#dfa47c" font-size="22" text-anchor="middle">hB</text>
+    <g transform="rotate(-0.18 722.5 522.5)">
+      <path d="M 684.02 504.47 Q 721.77 504.36 760.63 504.65 Q 759.88 523.34 758.96 540.86 Q 724.31 539.42 684.23 539.99 Q 685.74 521.77 684.02 504.47" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 684.01 504.64 Q 722.04 504.45 760.61 505.28 Q 760.47 523.23 759.06 541.17 Q 724.70 540.86 685.45 540.96 Q 685.05 519.77 684.01 504.64" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="722" y="530" fill="#8eb8df" font-size="22" text-anchor="middle">hB</text>
+    <g transform="rotate(-0.07 317.5 522.5)">
+      <path d="M 281.16 505.49 Q 314.94 505.14 354.17 503.91 Q 355.78 524.02 355.05 540.34 Q 318.13 539.02 279.49 538.97 Q 280.66 519.93 281.16 505.49" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 279.92 503.93 Q 315.27 504.62 355.02 504.51 Q 355.12 523.10 354.19 540.14 Q 318.04 540.37 280.75 541.05 Q 280.91 520.97 279.92 503.93" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="317" y="530" fill="#dfa47c" font-size="22" text-anchor="middle">hC</text>
+    <g transform="rotate(0.20 817.5 522.5)">
+      <path d="M 779.36 504.53 Q 814.87 504.34 855.58 504.86 Q 853.98 521.69 856.05 538.97 Q 818.98 540.04 779.68 539.40 Q 779.61 520.60 779.36 504.53" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 779.86 505.96 Q 816.96 503.95 854.46 503.86 Q 855.02 523.24 855.01 539.01 Q 818.57 539.23 780.59 540.75 Q 780.29 520.80 779.86 505.96" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="817" y="530" fill="#8eb8df" font-size="22" text-anchor="middle">hC</text>
+    <path d="M 372 503 Q 470 498 568 503" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" opacity="1" />
+    <text x="470" y="478" fill="#e7e5e1" font-size="21" text-anchor="middle">deserialize</text>
+    <path d="M 872 503 Q 950 499 1028 503" fill="none" stroke="#8eb8df" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)" opacity="1" />
+    <g transform="rotate(-0.29 1170 490)">
+      <path d="M 1030.82 450.24 Q 1163.71 450.67 1310.23 450.79 Q 1310.27 491.34 1310.66 529.63 Q 1174.63 530.95 1029.08 530.14 Q 1031.18 485.64 1030.82 450.24" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1029.43 449.72 Q 1163.69 450.60 1309.52 448.98 Q 1310.23 490.22 1309.23 528.84 Q 1176.41 529.71 1030.24 529.95 Q 1030.89 484.96 1029.43 449.72" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1170" y="499" fill="#8eb8df" font-size="24" text-anchor="middle">hB.value(db)</text>
+    <g transform="rotate(0.14 110 725)">
+      <path d="M 69.52 681.05 Q 109.32 680.09 150.38 680.64 Q 149.97 726.88 150.90 770.89 Q 111.89 770.63 71.17 768.80 Q 70.45 721.28 69.52 681.05" fill="#18191b" stroke="#858b93" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 68.86 680.65 Q 107.95 681.00 149.11 679.94 Q 150.15 726.08 149.49 768.89 Q 112.73 769.56 70.52 770.02 Q 69.52 719.84 68.86 680.65" fill="none" stroke="#858b93" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="110" y="735" fill="#858b93" font-size="26" text-anchor="middle">A</text>
+    <path d="M 222 542 Q 221 605 220 678" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" stroke-dasharray="7 7" opacity="1" />
+    <g transform="rotate(0.25 220 725)">
+      <path d="M 181.11 680.77 Q 219.26 681.20 260.61 681.01 Q 259.36 726.56 260.17 769.54 Q 221.50 769.59 181.07 770.64 Q 179.51 720.88 181.11 680.77" fill="#18191b" stroke="#dfa47c" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 179.09 679.09 Q 219.28 680.88 259.63 679.46 Q 259.66 724.74 260.73 771.03 Q 222.06 768.95 179.88 771.17 Q 178.93 720.94 179.09 679.09" fill="none" stroke="#dfa47c" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="220" y="735" fill="#dfa47c" font-size="26" text-anchor="middle">B</text>
+    <g transform="rotate(-0.15 330 725)">
+      <path d="M 289.36 678.99 Q 329.25 679.45 369.47 681.06 Q 369.80 725.90 369.09 769.45 Q 331.27 768.98 289.36 769.87 Q 290.74 720.87 289.36 678.99" fill="#18191b" stroke="#858b93" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 289.22 680.28 Q 329.57 680.45 370.23 678.96 Q 368.98 725.12 369.91 769.66 Q 332.70 769.18 290.13 769.42 Q 289.30 721.68 289.22 680.28" fill="none" stroke="#858b93" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="330" y="735" fill="#858b93" font-size="26" text-anchor="middle">C</text>
+    <path d="M 1170 532 Q 1165 605 1170 678" fill="none" stroke="#8eb8df" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)" opacity="1" />
+    <text x="1250" y="611" fill="#e7e5e1" font-size="20" text-anchor="middle">on demand</text>
+    <path d="M 262 725 C 276 725 274 650 304 648 C 540 643 822 653 1050 648 Q 1098 648 1098 710" fill="none" stroke="#dfa47c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" opacity="1" />
+    <text x="670" y="623" fill="#e7e5e1" font-size="21" text-anchor="middle">deserialize B</text>
+    <g transform="rotate(-0.07 1170 725)">
+      <path d="M 1099.01 680.20 Q 1166.32 679.96 1239.60 680.47 Q 1239.18 727.02 1238.97 768.96 Q 1173.22 771.16 1100.87 770.78 Q 1099.16 719.78 1099.01 680.20" fill="#18191b" stroke="#8eb8df" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1099.51 679.37 Q 1166.41 679.53 1239.71 679.58 Q 1240.74 726.70 1239.12 770.05 Q 1173.35 768.88 1101.07 770.16 Q 1099.88 720.27 1099.51 679.37" fill="none" stroke="#8eb8df" stroke-width="1" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1170" y="735" fill="#8eb8df" font-size="27" text-anchor="middle">B</text>
+  </g>
+</svg>

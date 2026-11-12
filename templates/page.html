@@ -12,5 +12,8 @@
       {{ page.content | safe }}
     </div>
   </article>
+  {% if page.extra.code_tabs | default(value=false) %}
+    <script src="{{ get_url(path='code-tabs.js', cachebust=true) }}" defer></script>
+  {% endif %}
 {% endblock content %}
 

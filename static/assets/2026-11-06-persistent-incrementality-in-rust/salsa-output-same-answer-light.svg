@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="220" viewBox="0 0 1400 220" role="img" aria-labelledby="title desc">
+  <title id="title">Salsa: inputs, query executions, and results</title>
+  <desc id="desc">b.text changed; 65 → 67 words. Printed calls: word_count(b), word_count(a), is_haha_number(a). Result: true. Arrows show printed call order, not dependencies or individual query return values.</desc>
+  <defs>
+    <style>text { font-family: "Chalkboard", "Comic Sans MS", cursive; text-anchor: middle; }</style>
+    <marker id="arrow-blue" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#416f99" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#a75f31" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#2f7951" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#9b9fa4" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1400" height="220" fill="#fff" />
+  <text x="180" y="31" style="fill: #a75f31; font-size: 23px">input / edit</text>
+  <text x="765" y="31" style="fill: #416f99; font-size: 23px">queries that ran, in order</text>
+  <text x="1290" y="31" style="fill: #2f7951; font-size: 23px">result</text>
+  <g id="step-4">
+    <g transform="rotate(0.38 180 120)">
+      <path d="M 29.89 65.57 Q 174.61 64.26 328.90 65.27 Q 329.02 120.79 331.01 175.97 Q 185.01 173.91 29.28 175.85 Q 28.76 113.79 29.89 65.57" fill="#fff" stroke="#a75f31" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 28.98 64.03 Q 174.06 64.18 329.76 65.61 Q 330.58 120.88 330.74 175.19 Q 186.85 174.35 29.66 175.21 Q 31.16 114.81 28.98 64.03" fill="none" stroke="#a75f31" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="180" y="107" style="fill: #a75f31; font-size: 23px">b.text changed</text>
+    <text x="180" y="140" style="fill: #252525; font-size: 21px">65 → 67 words</text>
+    <path d="M 332 120 Q 359.5 116 387.0 120" fill="none" stroke="#a75f31" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-orange)" />
+    <g transform="rotate(0.29 500 120)">
+      <path d="M 390.37 85.54 Q 495.54 84.68 610.20 84.38 Q 611.07 120.81 610.84 154.91 Q 505.29 154.91 388.80 155.52 Q 391.18 116.78 390.37 85.54" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 390.52 84.68 Q 495.00 84.45 610.33 86.19 Q 609.02 120.23 609.27 156.06 Q 505.56 155.42 389.77 155.33 Q 391.01 115.76 390.52 84.68" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="500.0" y="129" style="fill: #416f99; font-size: 25px">word_count(b)</text>
+    <path d="M 612.0 120 Q 622 116 632.0 120" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.29 745 120)">
+      <path d="M 635.37 85.54 Q 740.54 84.68 855.20 84.38 Q 856.07 120.81 855.84 154.91 Q 750.29 154.91 633.80 155.52 Q 636.18 116.78 635.37 85.54" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 635.52 84.68 Q 740.00 84.45 855.33 86.19 Q 854.02 120.23 854.27 156.06 Q 750.56 155.42 634.77 155.33 Q 636.01 115.76 635.52 84.68" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="745.0" y="129" style="fill: #416f99; font-size: 25px">word_count(a)</text>
+    <path d="M 857.0 120 Q 867 116 877.0 120" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.20 1010 120)">
+      <path d="M 879.31 84.35 Q 1004.22 84.75 1139.97 85.55 Q 1139.31 121.73 1139.72 154.70 Q 1014.40 155.22 880.43 154.24 Q 880.53 116.57 879.31 84.35" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 879.48 84.53 Q 1003.72 85.70 1141.29 85.57 Q 1139.29 120.24 1140.64 153.92 Q 1015.42 155.40 880.07 154.17 Q 878.97 115.22 879.48 84.53" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1010.0" y="129" style="fill: #416f99; font-size: 25px">is_haha_number(a)</text>
+    <path d="M 1143.0 120 Q 1180 116 1217 120" fill="none" stroke="#2f7951" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-green)" />
+    <g transform="rotate(-0.37 1290 120)">
+      <path d="M 1221.22 84.21 Q 1288.49 86.16 1359.37 85.04 Q 1359.74 120.47 1360.75 155.85 Q 1292.17 155.11 1220.48 155.24 Q 1219.02 116.22 1221.22 84.21" fill="#fff" stroke="#2f7951" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1219.98 86.10 Q 1288.04 85.45 1359.43 86.14 Q 1359.30 120.28 1359.11 155.23 Q 1293.57 155.52 1220.85 155.53 Q 1220.40 115.85 1219.98 86.10" fill="none" stroke="#2f7951" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1290" y="130" style="fill: #2f7951; font-size: 29px">true</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="220" viewBox="0 0 1400 220" role="img" aria-labelledby="title desc">
+  <title id="title">Salsa: inputs, query executions, and results</title>
+  <desc id="desc">a.includes changed; b → c. Printed calls: word_count(a), word_count(c), is_haha_number(a). Result: false. Arrows show printed call order, not dependencies or individual query return values.</desc>
+  <defs>
+    <style>text { font-family: "Chalkboard", "Comic Sans MS", cursive; text-anchor: middle; }</style>
+    <marker id="arrow-blue" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#416f99" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#a75f31" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#2f7951" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#9b9fa4" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#ad4944" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1400" height="220" fill="#fff" />
+  <text x="180" y="31" style="fill: #a75f31; font-size: 23px">input / edit</text>
+  <text x="765" y="31" style="fill: #416f99; font-size: 23px">queries that ran, in order</text>
+  <text x="1290" y="31" style="fill: #2f7951; font-size: 23px">result</text>
+  <g id="step-5">
+    <g transform="rotate(0.37 180 120)">
+      <path d="M 30.97 65.60 Q 173.29 64.56 330.56 65.80 Q 328.74 120.23 331.03 174.01 Q 186.40 174.56 30.38 175.94 Q 30.21 114.22 30.97 65.60" fill="#fff" stroke="#a75f31" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 29.54 65.32 Q 174.33 64.76 329.91 65.09 Q 329.37 120.27 330.18 173.96 Q 186.25 175.78 30.85 174.36 Q 29.78 115.60 29.54 65.32" fill="none" stroke="#a75f31" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="180" y="107" style="fill: #a75f31; font-size: 23px">a.includes changed</text>
+    <text x="180" y="140" style="fill: #252525; font-size: 21px">b → c</text>
+    <path d="M 332 120 Q 359.5 116 387.0 120" fill="none" stroke="#a75f31" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-orange)" />
+    <g transform="rotate(0.37 500 120)">
+      <path d="M 389.31 84.35 Q 494.95 84.59 609.40 84.54 Q 610.70 120.50 610.22 155.56 Q 503.65 153.91 390.79 154.45 Q 388.91 116.66 389.31 84.35" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 390.93 85.95 Q 494.48 84.36 609.45 85.97 Q 609.12 120.65 610.12 156.21 Q 505.32 155.25 390.43 154.71 Q 390.20 116.95 390.93 85.95" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="500.0" y="129" style="fill: #416f99; font-size: 25px">word_count(a)</text>
+    <path d="M 612.0 120 Q 622 116 632.0 120" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.37 745 120)">
+      <path d="M 634.31 84.35 Q 739.95 84.59 854.40 84.54 Q 855.70 120.50 855.22 155.56 Q 748.65 153.91 635.79 154.45 Q 633.91 116.66 634.31 84.35" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 635.93 85.95 Q 739.48 84.36 854.45 85.97 Q 854.12 120.65 855.12 156.21 Q 750.32 155.25 635.43 154.71 Q 635.20 116.95 635.93 85.95" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="745.0" y="129" style="fill: #416f99; font-size: 25px">word_count(c)</text>
+    <path d="M 857.0 120 Q 867 116 877.0 120" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(-0.20 1010 120)">
+      <path d="M 878.94 84.43 Q 1005.64 84.30 1140.68 84.62 Q 1139.87 121.23 1138.87 155.93 Q 1015.53 154.37 879.17 154.99 Q 880.81 117.60 878.94 84.43" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 878.93 84.61 Q 1005.93 84.41 1140.66 85.30 Q 1140.50 121.11 1138.98 156.27 Q 1015.96 155.94 880.49 156.03 Q 880.05 115.44 878.93 84.61" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1010.0" y="129" style="fill: #416f99; font-size: 25px">is_haha_number(a)</text>
+    <path d="M 1143.0 120 Q 1180 116 1217 120" fill="none" stroke="#ad4944" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-red)" />
+    <g transform="rotate(-0.29 1290 120)">
+      <path d="M 1219.81 85.92 Q 1287.07 84.31 1360.44 84.50 Q 1360.22 120.00 1360.67 153.83 Q 1292.25 156.12 1218.93 154.71 Q 1219.18 116.19 1219.81 85.92" fill="#fff" stroke="#ad4944" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1220.17 86.18 Q 1288.36 84.50 1360.69 84.89 Q 1358.96 120.10 1359.53 154.73 Q 1294.09 155.78 1218.95 155.21 Q 1219.46 115.88 1220.17 86.18" fill="none" stroke="#ad4944" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1290" y="130" style="fill: #ad4944; font-size: 29px">false</text>
+  </g>
+</svg>

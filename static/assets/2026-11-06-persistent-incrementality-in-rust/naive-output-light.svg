@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="880" viewBox="0 0 1400 880" role="img" aria-labelledby="title desc">
+  <title id="title">Naive implementation: inputs, query executions, and results</title>
+  <desc id="desc">initial inputs; a: 2 words, includes b; b: 3 words · c: 2 words. Printed calls: is_haha_number(a), word_count(a), word_count(b). Result: false. b.text changed; "red blue green"; 3 → 3 words. Printed calls: is_haha_number(a), word_count(a), word_count(b). Result: false. b.text changed; 3 → 65 words. Printed calls: is_haha_number(a), word_count(a), word_count(b). Result: true. b.text changed; 65 → 67 words. Printed calls: is_haha_number(a), word_count(a), word_count(b). Result: true. a.includes changed; b → c. Printed calls: is_haha_number(a), word_count(a), word_count(c). Result: false. Arrows show printed call order, not dependencies or individual query return values.</desc>
+  <defs>
+    <style>text { font-family: "Chalkboard", "Comic Sans MS", cursive; text-anchor: middle; }</style>
+    <marker id="arrow-blue" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#416f99" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#a75f31" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#2f7951" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#9b9fa4" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#ad4944" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1400" height="880" fill="#fff" />
+  <text x="180" y="31" style="fill: #a75f31; font-size: 23px">input / edit</text>
+  <text x="765" y="31" style="fill: #416f99; font-size: 23px">queries that ran, in order</text>
+  <text x="1290" y="31" style="fill: #2f7951; font-size: 23px">result</text>
+  <g id="step-1">
+    <g transform="rotate(-0.28 180 120)">
+      <path d="M 29.88 65.70 Q 174.53 65.60 329.83 65.78 Q 330.09 120.01 329.89 173.82 Q 187.13 176.16 29.57 174.50 Q 30.70 113.73 29.88 65.70" fill="#fff" stroke="#a75f31" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 29.16 64.19 Q 173.60 65.33 331.20 64.25 Q 331.19 121.24 331.04 175.83 Q 185.12 175.39 29.02 173.71 Q 29.73 115.21 29.16 64.19" fill="none" stroke="#a75f31" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="180" y="94" style="fill: #a75f31; font-size: 23px">initial inputs</text>
+    <text x="180" y="123" style="fill: #252525; font-size: 21px">a: 2 words, includes b</text>
+    <text x="180" y="152" style="fill: #252525; font-size: 21px">b: 3 words · c: 2 words</text>
+    <path d="M 332 120 Q 359.5 116 387.0 120" fill="none" stroke="#a75f31" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-orange)" />
+    <g transform="rotate(0.37 520 120)">
+      <path d="M 389.31 84.35 Q 514.15 84.59 649.40 84.54 Q 650.70 120.50 650.22 155.56 Q 524.45 153.91 390.79 154.45 Q 388.91 116.66 389.31 84.35" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 390.93 85.95 Q 513.68 84.36 649.45 85.97 Q 649.12 120.65 650.12 156.21 Q 526.12 155.25 390.43 154.71 Q 390.20 116.95 390.93 85.95" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="520.0" y="129" style="fill: #416f99; font-size: 25px">is_haha_number(a)</text>
+    <path d="M 652.0 120 Q 662 116 672.0 120" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(-0.28 785 120)">
+      <path d="M 674.27 83.75 Q 780.38 85.03 894.51 84.60 Q 895.06 119.97 894.57 155.13 Q 789.31 155.77 675.80 155.47 Q 675.21 115.97 674.27 83.75" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 675.68 85.61 Q 780.12 84.24 894.87 84.58 Q 894.61 120.34 894.68 153.77 Q 789.44 156.13 673.94 155.53 Q 675.46 117.69 675.68 85.61" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="785.0" y="129" style="fill: #416f99; font-size: 25px">word_count(a)</text>
+    <path d="M 897.0 120 Q 907 116 917.0 120" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(-0.28 1030 120)">
+      <path d="M 919.27 83.75 Q 1025.38 85.03 1139.51 84.60 Q 1140.06 119.97 1139.57 155.13 Q 1034.31 155.77 920.80 155.47 Q 920.21 115.97 919.27 83.75" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 920.68 85.61 Q 1025.12 84.24 1139.87 84.58 Q 1139.61 120.34 1139.68 153.77 Q 1034.44 156.13 918.94 155.53 Q 920.46 117.69 920.68 85.61" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1030.0" y="129" style="fill: #416f99; font-size: 25px">word_count(b)</text>
+    <path d="M 1143.0 120 Q 1180 116 1217 120" fill="none" stroke="#ad4944" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-red)" />
+    <g transform="rotate(0.08 1290 120)">
+      <path d="M 1219.60 83.70 Q 1286.80 85.84 1359.80 85.21 Q 1359.12 120.51 1359.66 154.06 Q 1292.14 153.95 1220.96 155.01 Q 1220.04 117.21 1219.60 83.70" fill="#fff" stroke="#ad4944" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1220.49 84.47 Q 1288.20 85.15 1361.19 84.41 Q 1359.61 119.57 1360.79 155.32 Q 1293.60 154.68 1221.09 155.65 Q 1220.82 115.29 1220.49 84.47" fill="none" stroke="#ad4944" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1290" y="130" style="fill: #ad4944; font-size: 29px">false</text>
+  </g>
+  <g id="step-2">
+    <path d="M 180 177 Q 176 202 180 227" fill="none" stroke="#9b9fa4" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#arrow-muted)" />
+    <g transform="rotate(0.06 180 285)">
+      <path d="M 29.21 231.21 Q 175.10 229.91 330.43 229.26 Q 329.28 285.55 330.50 339.25 Q 187.22 338.88 29.20 338.93 Q 30.70 279.15 29.21 231.21" fill="#fff" stroke="#a75f31" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 29.93 229.55 Q 174.36 229.75 329.24 229.82 Q 329.49 285.09 330.84 340.47 Q 186.43 340.99 29.73 339.69 Q 29.80 279.25 29.93 229.55" fill="none" stroke="#a75f31" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="180" y="259" style="fill: #a75f31; font-size: 23px">b.text changed</text>
+    <text x="180" y="288" style="fill: #252525; font-size: 21px">"red blue green"</text>
+    <text x="180" y="317" style="fill: #252525; font-size: 21px">3 → 3 words</text>
+    <path d="M 332 285 Q 359.5 281 387.0 285" fill="none" stroke="#a75f31" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-orange)" />
+    <g transform="rotate(-0.16 520 285)">
+      <path d="M 388.98 251.16 Q 514.41 249.24 651.07 248.83 Q 650.62 285.31 649.21 319.56 Q 524.55 320.34 390.87 319.90 Q 389.19 280.85 388.98 251.16" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 389.95 249.07 Q 515.38 249.04 649.90 250.23 Q 649.90 285.07 651.08 320.04 Q 526.14 319.17 390.93 321.19 Q 389.39 282.04 389.95 249.07" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="520.0" y="294" style="fill: #416f99; font-size: 25px">is_haha_number(a)</text>
+    <path d="M 652.0 285 Q 662 281 672.0 285" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.01 785 285)">
+      <path d="M 674.62 249.48 Q 780.70 249.85 894.27 248.81 Q 894.24 286.78 896.10 320.46 Q 788.81 320.13 675.80 320.77 Q 673.83 282.77 674.62 249.48" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 675.81 250.28 Q 781.54 248.85 894.08 250.44 Q 894.59 286.04 895.51 320.98 Q 788.61 319.82 676.17 319.88 Q 673.74 280.40 675.81 250.28" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="785.0" y="294" style="fill: #416f99; font-size: 25px">word_count(a)</text>
+    <path d="M 897.0 285 Q 907 281 917.0 285" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.01 1030 285)">
+      <path d="M 919.62 249.48 Q 1025.70 249.85 1139.27 248.81 Q 1139.24 286.78 1141.10 320.46 Q 1033.81 320.13 920.80 320.77 Q 918.83 282.77 919.62 249.48" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 920.81 250.28 Q 1026.54 248.85 1139.08 250.44 Q 1139.59 286.04 1140.51 320.98 Q 1033.61 319.82 921.17 319.88 Q 918.74 280.40 920.81 250.28" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1030.0" y="294" style="fill: #416f99; font-size: 25px">word_count(b)</text>
+    <path d="M 1143.0 285 Q 1180 281 1217 285" fill="none" stroke="#ad4944" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-red)" />
+    <g transform="rotate(-0.08 1290 285)">
+      <path d="M 1220.78 249.98 Q 1287.09 249.31 1360.44 249.36 Q 1361.22 285.03 1361.20 318.95 Q 1292.66 320.14 1221.17 320.90 Q 1219.51 281.85 1220.78 249.98" fill="#fff" stroke="#ad4944" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1220.93 249.15 Q 1288.03 250.81 1361.21 249.27 Q 1360.62 285.59 1361.18 320.70 Q 1291.55 321.15 1220.84 319.44 Q 1221.21 280.62 1220.93 249.15" fill="none" stroke="#ad4944" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1290" y="295" style="fill: #ad4944; font-size: 29px">false</text>
+  </g>
+  <g id="step-3">
+    <path d="M 180 342 Q 176 367 180 392" fill="none" stroke="#9b9fa4" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#arrow-muted)" />
+    <g transform="rotate(-0.28 180 450)">
+      <path d="M 30.30 394.14 Q 174.55 395.28 329.70 395.31 Q 330.17 449.91 330.08 505.31 Q 186.05 505.99 30.61 504.68 Q 29.29 443.53 30.30 394.14" fill="#fff" stroke="#a75f31" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 30.81 395.49 Q 174.28 394.85 330.00 394.28 Q 330.08 450.18 330.31 505.34 Q 186.44 504.34 28.94 504.57 Q 30.49 444.53 30.81 395.49" fill="none" stroke="#a75f31" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="180" y="437" style="fill: #a75f31; font-size: 23px">b.text changed</text>
+    <text x="180" y="470" style="fill: #252525; font-size: 21px">3 → 65 words</text>
+    <path d="M 332 450 Q 359.5 446 387.0 450" fill="none" stroke="#a75f31" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-orange)" />
+    <g transform="rotate(0.16 520 450)">
+      <path d="M 389.58 413.80 Q 515.35 413.97 649.44 414.58 Q 651.25 449.50 648.85 485.73 Q 524.85 484.06 389.09 483.80 Q 389.56 447.61 389.58 413.80" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 390.79 416.17 Q 513.69 415.06 648.96 414.54 Q 650.54 451.30 649.66 484.55 Q 526.01 483.73 390.74 485.08 Q 390.37 447.47 390.79 416.17" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="520.0" y="459" style="fill: #416f99; font-size: 25px">is_haha_number(a)</text>
+    <path d="M 652.0 450 Q 662 446 672.0 450" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(-0.36 785 450)">
+      <path d="M 676.09 413.96 Q 780.05 413.92 893.80 414.68 Q 895.45 451.51 895.25 485.85 Q 788.77 484.01 675.77 485.84 Q 674.83 445.60 676.09 413.96" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 674.85 415.29 Q 780.37 414.77 895.36 415.82 Q 894.94 450.25 893.85 485.23 Q 788.50 484.52 673.82 484.30 Q 675.67 445.87 674.85 415.29" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="785.0" y="459" style="fill: #416f99; font-size: 25px">word_count(a)</text>
+    <path d="M 897.0 450 Q 907 446 917.0 450" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(-0.36 1030 450)">
+      <path d="M 921.09 413.96 Q 1025.05 413.92 1138.80 414.68 Q 1140.45 451.51 1140.25 485.85 Q 1033.77 484.01 920.77 485.84 Q 919.83 445.60 921.09 413.96" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 919.85 415.29 Q 1025.37 414.77 1140.36 415.82 Q 1139.94 450.25 1138.85 485.23 Q 1033.50 484.52 918.82 484.30 Q 920.67 445.87 919.85 415.29" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1030.0" y="459" style="fill: #416f99; font-size: 25px">word_count(b)</text>
+    <path d="M 1143.0 450 Q 1180 446 1217 450" fill="none" stroke="#2f7951" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-green)" />
+    <g transform="rotate(0.37 1290 450)">
+      <path d="M 1220.10 415.14 Q 1287.13 414.19 1358.80 414.73 Q 1360.01 451.42 1359.58 486.22 Q 1291.79 485.41 1218.77 484.27 Q 1219.03 447.74 1220.10 415.14" fill="#fff" stroke="#2f7951" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1220.47 415.14 Q 1288.14 416.18 1359.68 415.94 Q 1359.45 451.23 1360.85 484.68 Q 1293.21 485.60 1218.93 485.68 Q 1219.21 445.95 1220.47 415.14" fill="none" stroke="#2f7951" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1290" y="460" style="fill: #2f7951; font-size: 29px">true</text>
+  </g>
+  <g id="step-4">
+    <path d="M 180 507 Q 176 532 180 557" fill="none" stroke="#9b9fa4" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#arrow-muted)" />
+    <g transform="rotate(0.38 180 615)">
+      <path d="M 29.89 560.57 Q 174.61 559.26 328.90 560.27 Q 329.02 615.79 331.01 670.97 Q 185.01 668.91 29.28 670.85 Q 28.76 608.79 29.89 560.57" fill="#fff" stroke="#a75f31" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 28.98 559.03 Q 174.06 559.18 329.76 560.61 Q 330.58 615.88 330.74 670.19 Q 186.85 669.35 29.66 670.21 Q 31.16 609.81 28.98 559.03" fill="none" stroke="#a75f31" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="180" y="602" style="fill: #a75f31; font-size: 23px">b.text changed</text>
+    <text x="180" y="635" style="fill: #252525; font-size: 21px">65 → 67 words</text>
+    <path d="M 332 615 Q 359.5 611 387.0 615" fill="none" stroke="#a75f31" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-orange)" />
+    <g transform="rotate(0.20 520 615)">
+      <path d="M 389.31 579.35 Q 514.22 579.75 649.97 580.55 Q 649.31 616.73 649.72 649.70 Q 524.40 650.22 390.43 649.24 Q 390.53 611.57 389.31 579.35" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 389.48 579.53 Q 513.72 580.70 651.29 580.57 Q 649.29 615.24 650.64 648.92 Q 525.42 650.40 390.07 649.17 Q 388.97 610.22 389.48 579.53" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="520.0" y="624" style="fill: #416f99; font-size: 25px">is_haha_number(a)</text>
+    <path d="M 652.0 615 Q 662 611 672.0 615" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.29 785 615)">
+      <path d="M 675.37 580.54 Q 780.54 579.68 895.20 579.38 Q 896.07 615.81 895.84 649.91 Q 790.29 649.91 673.80 650.52 Q 676.18 611.78 675.37 580.54" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 675.52 579.68 Q 780.00 579.45 895.33 581.19 Q 894.02 615.23 894.27 651.06 Q 790.56 650.42 674.77 650.33 Q 676.01 610.76 675.52 579.68" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="785.0" y="624" style="fill: #416f99; font-size: 25px">word_count(a)</text>
+    <path d="M 897.0 615 Q 907 611 917.0 615" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.29 1030 615)">
+      <path d="M 920.37 580.54 Q 1025.54 579.68 1140.20 579.38 Q 1141.07 615.81 1140.84 649.91 Q 1035.29 649.91 918.80 650.52 Q 921.18 611.78 920.37 580.54" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 920.52 579.68 Q 1025.00 579.45 1140.33 581.19 Q 1139.02 615.23 1139.27 651.06 Q 1035.56 650.42 919.77 650.33 Q 921.01 610.76 920.52 579.68" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1030.0" y="624" style="fill: #416f99; font-size: 25px">word_count(b)</text>
+    <path d="M 1143.0 615 Q 1180 611 1217 615" fill="none" stroke="#2f7951" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-green)" />
+    <g transform="rotate(-0.37 1290 615)">
+      <path d="M 1221.22 579.21 Q 1288.49 581.16 1359.37 580.04 Q 1359.74 615.47 1360.75 650.85 Q 1292.17 650.11 1220.48 650.24 Q 1219.02 611.22 1221.22 579.21" fill="#fff" stroke="#2f7951" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1219.98 581.10 Q 1288.04 580.45 1359.43 581.14 Q 1359.30 615.28 1359.11 650.23 Q 1293.57 650.52 1220.85 650.53 Q 1220.40 610.85 1219.98 581.10" fill="none" stroke="#2f7951" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1290" y="625" style="fill: #2f7951; font-size: 29px">true</text>
+  </g>
+  <g id="step-5">
+    <path d="M 180 672 Q 176 697 180 722" fill="none" stroke="#9b9fa4" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#arrow-muted)" />
+    <g transform="rotate(0.37 180 780)">
+      <path d="M 30.97 725.60 Q 173.29 724.56 330.56 725.80 Q 328.74 780.23 331.03 834.01 Q 186.40 834.56 30.38 835.94 Q 30.21 774.22 30.97 725.60" fill="#fff" stroke="#a75f31" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 29.54 725.32 Q 174.33 724.76 329.91 725.09 Q 329.37 780.27 330.18 833.96 Q 186.25 835.78 30.85 834.36 Q 29.78 775.60 29.54 725.32" fill="none" stroke="#a75f31" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="180" y="767" style="fill: #a75f31; font-size: 23px">a.includes changed</text>
+    <text x="180" y="800" style="fill: #252525; font-size: 21px">b → c</text>
+    <path d="M 332 780 Q 359.5 776 387.0 780" fill="none" stroke="#a75f31" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-orange)" />
+    <g transform="rotate(-0.20 520 780)">
+      <path d="M 388.94 744.43 Q 515.64 744.30 650.68 744.62 Q 649.87 781.23 648.87 815.93 Q 525.53 814.37 389.17 814.99 Q 390.81 777.60 388.94 744.43" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 388.93 744.61 Q 515.93 744.41 650.66 745.30 Q 650.50 781.11 648.98 816.27 Q 525.96 815.94 390.49 816.03 Q 390.05 775.44 388.93 744.61" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="520.0" y="789" style="fill: #416f99; font-size: 25px">is_haha_number(a)</text>
+    <path d="M 652.0 780 Q 662 776 672.0 780" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.37 785 780)">
+      <path d="M 674.31 744.35 Q 779.95 744.59 894.40 744.54 Q 895.70 780.50 895.22 815.56 Q 788.65 813.91 675.79 814.45 Q 673.91 776.66 674.31 744.35" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 675.93 745.95 Q 779.48 744.36 894.45 745.97 Q 894.12 780.65 895.12 816.21 Q 790.32 815.25 675.43 814.71 Q 675.20 776.95 675.93 745.95" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="785.0" y="789" style="fill: #416f99; font-size: 25px">word_count(a)</text>
+    <path d="M 897.0 780 Q 907 776 917.0 780" fill="none" stroke="#416f99" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+    <g transform="rotate(0.37 1030 780)">
+      <path d="M 919.31 744.35 Q 1024.95 744.59 1139.40 744.54 Q 1140.70 780.50 1140.22 815.56 Q 1033.65 813.91 920.79 814.45 Q 918.91 776.66 919.31 744.35" fill="#fff" stroke="#416f99" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 920.93 745.95 Q 1024.48 744.36 1139.45 745.97 Q 1139.12 780.65 1140.12 816.21 Q 1035.32 815.25 920.43 814.71 Q 920.20 776.95 920.93 745.95" fill="none" stroke="#416f99" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1030.0" y="789" style="fill: #416f99; font-size: 25px">word_count(c)</text>
+    <path d="M 1143.0 780 Q 1180 776 1217 780" fill="none" stroke="#ad4944" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-red)" />
+    <g transform="rotate(-0.29 1290 780)">
+      <path d="M 1219.81 745.92 Q 1287.07 744.31 1360.44 744.50 Q 1360.22 780.00 1360.67 813.83 Q 1292.25 816.12 1218.93 814.71 Q 1219.18 776.19 1219.81 745.92" fill="#fff" stroke="#ad4944" stroke-width="1.8" opacity="1" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1220.17 746.18 Q 1288.36 744.50 1360.69 744.89 Q 1358.96 780.10 1359.53 814.73 Q 1294.09 815.78 1218.95 815.21 Q 1219.46 775.88 1220.17 746.18" fill="none" stroke="#ad4944" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="1290" y="790" style="fill: #ad4944; font-size: 29px">false</text>
+  </g>
+</svg>

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">Caching and business logic</title>
+  <desc id="desc">Two schematic arrangements of the same components. On the left, business logic and caching are intertwined, with many crossing connections between them. On the right, each is contained behind its own boundary, with a single API connecting them. The illustration contrasts the coupling that must be maintained, rather than measuring computational complexity.</desc>
+  <defs>
+    <style>
+      text { font-family: "Chalkboard", "Comic Sans MS", cursive; font-size: 26px; fill: #e7e5e1; text-anchor: middle; }
+      .small { font-size: 21px; }
+      .ink { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .wire { fill: none; stroke: #e7e5e1; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; opacity: .75; }
+    </style>
+  </defs>
+  <rect width="1280" height="520" fill="#18191b" />
+  <g id="intertwined">
+    <text x="305" y="48" transform="rotate(-0.5 305 48)">intertwined</text>
+    <path d="M 148 160 C 237 148 337 180 431 165" class="wire" />
+    <path d="M 148 160 C 237 126 372 322 466 285" class="wire" />
+    <path d="M 148 160 C 237 104 317 449 411 390" class="wire" />
+    <path d="M 203 275 C 292 285 337 158 431 165" class="wire" />
+    <path d="M 203 275 C 292 263 372 300 466 285" class="wire" />
+    <path d="M 203 275 C 292 241 317 427 411 390" class="wire" />
+    <path d="M 138 385 C 227 417 337 136 431 165" class="wire" />
+    <path d="M 138 385 C 227 395 372 278 466 285" class="wire" />
+    <path d="M 138 385 C 227 373 317 405 411 390" class="wire" />
+    <path d="M 125 183 C 126 216 174 221 180 252" class="wire" />
+    <path d="M 180 298 C 178 337 118 344 115 362" class="wire" />
+    <path d="M 455 188 C 451 219 489 238 490 262" class="wire" />
+    <path d="M 490 308 C 488 342 439 346 435 367" class="wire" />
+    <g transform="rotate(0.14 125 160)">
+      <path d="M 102 159 C 100 129 150 131 148 161 C 150 191 100 190 102 159" fill="#18191b" stroke="#8eb8df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 103 157 C 103 130 150 133 149 162 C 146 190 101 188 103 157" fill="none" stroke="#8eb8df" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(-0.10 180 275)">
+      <path d="M 157 274 C 155 244 205 246 203 276 C 205 306 155 305 157 274" fill="#18191b" stroke="#8eb8df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 158 272 C 158 245 205 248 204 277 C 201 305 156 303 158 272" fill="none" stroke="#8eb8df" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(-0.05 115 385)">
+      <path d="M 92 384 C 90 354 140 356 138 386 C 140 416 90 415 92 384" fill="#18191b" stroke="#8eb8df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 93 382 C 93 355 140 358 139 387 C 136 415 91 413 93 382" fill="none" stroke="#8eb8df" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(0.81 455 165)">
+      <path d="M 432 143 Q 455 141 477 142 Q 480 165 478 188 Q 455 189 431 187 Q 433 165 432 143" fill="#18191b" stroke="#dfa47c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 433 141 Q 455 143 479 143 Q 478 165 477 187 Q 455 188 433 189 Q 431 165 433 141" fill="none" stroke="#dfa47c" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(-0.67 490 285)">
+      <path d="M 467 263 Q 490 261 512 262 Q 515 285 513 308 Q 490 309 466 307 Q 468 285 467 263" fill="#18191b" stroke="#dfa47c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 468 261 Q 490 263 514 263 Q 513 285 512 307 Q 490 308 468 309 Q 466 285 468 261" fill="none" stroke="#dfa47c" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(0.92 435 390)">
+      <path d="M 412 368 Q 435 366 457 367 Q 460 390 458 413 Q 435 414 411 412 Q 413 390 412 368" fill="#18191b" stroke="#dfa47c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 413 366 Q 435 368 459 368 Q 458 390 457 412 Q 435 413 413 414 Q 411 390 413 366" fill="none" stroke="#dfa47c" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="163" y="477" transform="rotate(0.4 163 477)" style="fill: #8eb8df">business logic</text>
+    <text x="458" y="477" transform="rotate(-0.5 458 477)" style="fill: #dfa47c">cache</text>
+  </g>
+  <g id="encapsulated">
+    <text x="975" y="48" transform="rotate(0.5 975 48)">encapsulated</text>
+    <path d="M 790 183 C 790 215 839 221 845 252" class="wire" />
+    <path d="M 845 298 C 841 332 789 338 785 362" class="wire" />
+    <path d="M 1115 188 C 1115 220 1155 230 1160 262" class="wire" />
+    <path d="M 1160 308 C 1161 340 1110 342 1105 367" class="wire" />
+    <path d="M 868 275 C 927 269 1009 270 1136 285" class="ink" />
+    <text x="975" y="253" transform="rotate(-0.8 975 253)" class="small">API</text>
+    <path d="M 747 111 C 720 107 709 134 709 174 C 706 236 711 294 712 351 C 711 399 708 430 750 432 C 795 437 851 435 886 432 C 919 430 921 404 918 363 C 916 302 923 235 917 181 C 920 134 914 111 879 111 C 837 108 791 114 747 111" class="ink" />
+    <path d="M 1071 112 C 1041 112 1025 135 1030 176 C 1036 240 1028 318 1033 370 C 1035 414 1035 435 1076 435 C 1117 432 1170 438 1205 433 C 1242 437 1246 411 1242 363 C 1239 301 1248 229 1243 177 C 1244 130 1227 111 1193 113 C 1151 113 1097 109 1071 112" class="ink" />
+    <g transform="rotate(0.14 790 160)">
+      <path d="M 767 159 C 765 129 815 131 813 161 C 815 191 765 190 767 159" fill="#18191b" stroke="#8eb8df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 768 157 C 768 130 815 133 814 162 C 811 190 766 188 768 157" fill="none" stroke="#8eb8df" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(-0.10 845 275)">
+      <path d="M 822 274 C 820 244 870 246 868 276 C 870 306 820 305 822 274" fill="#18191b" stroke="#8eb8df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 823 272 C 823 245 870 248 869 277 C 866 305 821 303 823 272" fill="none" stroke="#8eb8df" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(-0.05 785 385)">
+      <path d="M 762 384 C 760 354 810 356 808 386 C 810 416 760 415 762 384" fill="#18191b" stroke="#8eb8df" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 763 382 C 763 355 810 358 809 387 C 806 415 761 413 763 382" fill="none" stroke="#8eb8df" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(0.81 1115 165)">
+      <path d="M 1092 143 Q 1115 141 1137 142 Q 1140 165 1138 188 Q 1115 189 1091 187 Q 1093 165 1092 143" fill="#18191b" stroke="#dfa47c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1093 141 Q 1115 143 1139 143 Q 1138 165 1137 187 Q 1115 188 1093 189 Q 1091 165 1093 141" fill="none" stroke="#dfa47c" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(-0.67 1160 285)">
+      <path d="M 1137 263 Q 1160 261 1182 262 Q 1185 285 1183 308 Q 1160 309 1136 307 Q 1138 285 1137 263" fill="#18191b" stroke="#dfa47c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1138 261 Q 1160 263 1184 263 Q 1183 285 1182 307 Q 1160 308 1138 309 Q 1136 285 1138 261" fill="none" stroke="#dfa47c" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g transform="rotate(0.92 1105 390)">
+      <path d="M 1082 368 Q 1105 366 1127 367 Q 1130 390 1128 413 Q 1105 414 1081 412 Q 1083 390 1082 368" fill="#18191b" stroke="#dfa47c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 1083 366 Q 1105 368 1129 368 Q 1128 390 1127 412 Q 1105 413 1083 414 Q 1081 390 1083 366" fill="none" stroke="#dfa47c" stroke-width="1.0" opacity=".38" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="815" y="477" transform="rotate(-0.3 815 477)" style="fill: #8eb8df">business logic</text>
+    <text x="1136" y="477" transform="rotate(0.5 1136 477)" style="fill: #dfa47c">cache</text>
+  </g>
+</svg>

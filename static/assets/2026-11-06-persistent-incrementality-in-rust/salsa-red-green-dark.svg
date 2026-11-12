@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="700" viewBox="0 0 1240 700" role="img" aria-labelledby="title desc">
+  <title id="title">Salsa: rechecking and recomputing</title>
+  <desc id="desc">Two dependency trees for the post's word-count example. In both, file a contains two words and includes file b. Left: b's text changes from three words to three different words. word_count(b) recomputes to the same value, 3, so word_count(a) is rechecked and its value 5 is reused. Right: b changes from 3 words to 65 words. word_count(b) recomputes to 65 and word_count(a) recomputes to 67. Green means an unchanged value, including a recomputed value that compares equal; red means a changed value. Unchanged include-list inputs are omitted. Arrows point from queries to their dependencies.</desc>
+  <metadata>Algorithm reference: https://salsa-rs.netlify.app/reference/algorithm</metadata>
+  <defs>
+    <style>
+      text { font-family: "Chalkboard", "Comic Sans MS", cursive; font-size: 25px; fill: #e7e5e1; text-anchor: middle; }
+      .small { font-size: 20px; }
+      .value { font-size: 27px; }
+      .same { fill: #8bc49a; }
+      .changed { fill: #e59389; }
+      .ink { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .box { fill: #18191b; stroke-width: 1.8; }
+      .arrow { fill: none; stroke: #e7e5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1.1 1.4 Q 5.3 4.6 10.8 6.1 M 10.8 6.1 Q 5.6 8.4 1.5 11" fill="none" stroke="#e7e5e1" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="1240" height="700" fill="#18191b" />
+  <g id="same-count">
+    <text x="300" y="37" transform="rotate(-0.05 300 37)">same word count</text>
+    <path d="M 300 201 C 300 299 154 353 155 533" class="arrow" />
+    <path d="M 300 201 Q 352 259 445 313" class="arrow" />
+    <path d="M 445 437 Q 439 485 445 533" class="arrow" />
+    <g transform="rotate(0.62 300 140)">
+      <path d="M 164.84 80.79 Q 295.45 78.97 433.48 80.37 Q 433.64 140.78 436.40 201.34 Q 304.03 198.50 164.00 201.18 Q 163.29 133.01 164.84 80.79" class="ink" stroke="#8bc49a" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 163.59 78.66 Q 294.68 78.86 434.67 80.84 Q 435.80 140.89 436.03 200.26 Q 306.58 199.10 164.53 200.29 Q 166.61 134.43 163.59 78.66" class="ink" stroke="#8bc49a" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <text x="300" y="118" transform="rotate(0.08 300 118)">word_count(a)</text>
+    <text x="300" y="156" class="value same" transform="rotate(-0.74 300 156)">5 → 5</text>
+    <text x="300" y="187" class="small" transform="rotate(-0.81 300 187)">rechecked · reused</text>
+    <g transform="rotate(-0.03 445 375)">
+      <path d="M 309.10 314.21 Q 438.58 316.75 581.39 316.42 Q 580.10 376.95 579.27 434.93 Q 449.12 434.71 309.11 433.56 Q 311.51 367.55 309.10 314.21" class="ink" stroke="#8bc49a" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 311.13 315.72 Q 438.12 314.95 581.79 316.75 Q 580.23 377.18 580.75 434.25 Q 450.58 435.35 309.62 436.15 Q 309.80 369.90 311.13 315.72" class="ink" stroke="#8bc49a" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <text x="445" y="353" transform="rotate(-0.68 445 353)">word_count(b)</text>
+    <text x="445" y="391" class="value same" transform="rotate(-0.33 445 391)">3 → 3</text>
+    <text x="445" y="422" class="small" transform="rotate(-0.46 445 422)">recomputed</text>
+    <g transform="rotate(-0.57 155 585)">
+      <path d="M 24.80 533.36 Q 150.33 536.34 285.16 535.24 Q 285.44 585.02 284.59 635.28 Q 160.73 634.57 24.92 634.39 Q 25.20 580.63 24.80 533.36" class="ink" stroke="#8bc49a" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 24.38 535.67 Q 151.06 535.13 286.73 534.31 Q 286.51 584.85 284.51 636.14 Q 158.52 635.41 26.34 636.60 Q 25.66 579.44 24.38 535.67" class="ink" stroke="#8bc49a" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <text x="155" y="572" transform="rotate(-0.64 155 572)">a.text</text>
+    <text x="155" y="609" class="small same" transform="rotate(-0.29 155 609)">"hello world"</text>
+    <g transform="rotate(-0.22 445 585)">
+      <path d="M 315.47 533.44 Q 438.10 536.37 575.46 533.79 Q 574.74 585.24 576.33 634.23 Q 451.01 635.88 314.35 634.11 Q 315.08 579.64 315.47 533.44" class="ink" stroke="#e59389" style="fill: #18191b; stroke: #e59389" />
+      <path d="M 315.34 534.38 Q 440.86 534.71 573.69 535.99 Q 576.42 586.65 575.17 636.34 Q 451.76 633.23 314.96 633.27 Q 314.40 579.07 315.34 534.38" class="ink" stroke="#e59389" style="stroke-width: 1.05; opacity: .38; stroke: #e59389" />
+    </g>
+    <text x="445" y="572" transform="rotate(-0.29 445 572)">b.text (edited)</text>
+    <text x="445" y="609" class="small changed" transform="rotate(0.58 445 609)">"red blue green"</text>
+  </g>
+  <g id="different-count">
+    <text x="920" y="37" transform="rotate(0.78 920 37)">different word count</text>
+    <path d="M 920 201 C 920 299 774 353 775 533" class="arrow" />
+    <path d="M 920 201 Q 972 259 1065 313" class="arrow" />
+    <path d="M 1065 437 Q 1070 485 1065 533" class="arrow" />
+    <g transform="rotate(-0.05 920 140)">
+      <path d="M 785.64 81.30 Q 913.74 78.24 1056.80 81.02 Q 1055.18 139.80 1053.39 201.56 Q 925.51 201.30 786.02 200.90 Q 786.10 133.11 785.64 81.30" class="ink" stroke="#e59389" style="fill: #18191b; stroke: #e59389" />
+      <path d="M 784.09 79.76 Q 915.56 81.06 1055.93 80.29 Q 1054.92 140.10 1055.60 200.55 Q 925.45 200.82 786.73 201.60 Q 783.59 133.23 784.09 79.76" class="ink" stroke="#e59389" style="stroke-width: 1.05; opacity: .38; stroke: #e59389" />
+    </g>
+    <text x="920" y="118" transform="rotate(0.89 920 118)">word_count(a)</text>
+    <text x="920" y="156" class="value changed" transform="rotate(0.43 920 156)">5 → 67</text>
+    <text x="920" y="187" class="small" transform="rotate(-0.88 920 187)">recomputed</text>
+    <g transform="rotate(0.15 1065 375)">
+      <path d="M 930.68 314.22 Q 1061.15 314.86 1200.95 313.39 Q 1199.20 374.48 1201.05 435.08 Q 1072.03 435.38 929.37 434.48 Q 929.55 367.91 930.68 314.22" class="ink" stroke="#e59389" style="fill: #18191b; stroke: #e59389" />
+      <path d="M 928.59 315.54 Q 1058.93 314.83 1200.75 314.19 Q 1199.78 375.56 1199.37 435.60 Q 1068.95 434.64 928.60 435.61 Q 929.27 370.67 928.59 315.54" class="ink" stroke="#e59389" style="stroke-width: 1.05; opacity: .38; stroke: #e59389" />
+    </g>
+    <text x="1065" y="353" transform="rotate(-0.47 1065 353)">word_count(b)</text>
+    <text x="1065" y="391" class="value changed" transform="rotate(0.90 1065 391)">3 → 65</text>
+    <text x="1065" y="422" class="small" transform="rotate(0.35 1065 422)">recomputed</text>
+    <g transform="rotate(-0.02 775 585)">
+      <path d="M 645.58 535.09 Q 770.95 535.72 905.51 533.32 Q 903.71 586.90 904.68 636.71 Q 780.69 636.16 645.88 636.67 Q 645.57 581.58 645.58 535.09" class="ink" stroke="#8bc49a" style="fill: #18191b; stroke: #8bc49a" />
+      <path d="M 644.73 534.16 Q 768.40 534.11 906.42 535.57 Q 903.36 584.30 904.86 635.16 Q 779.70 633.27 644.14 636.36 Q 645.81 581.15 644.73 534.16" class="ink" stroke="#8bc49a" style="stroke-width: 1.05; opacity: .38; stroke: #8bc49a" />
+    </g>
+    <text x="775" y="572" transform="rotate(0.64 775 572)">a.text</text>
+    <text x="775" y="609" class="small same" transform="rotate(-0.54 775 609)">"hello world"</text>
+    <g transform="rotate(-0.30 1065 585)">
+      <path d="M 935.60 533.91 Q 1059.09 536.64 1193.97 534.25 Q 1193.98 587.33 1195.67 635.33 Q 1071.46 634.87 936.50 636.00 Q 934.28 579.05 935.60 533.91" class="ink" stroke="#e59389" style="fill: #18191b; stroke: #e59389" />
+      <path d="M 935.13 534.81 Q 1060.84 535.55 1195.87 535.37 Q 1194.15 586.88 1196.73 635.49 Q 1070.96 634.04 933.62 634.81 Q 935.34 580.82 935.13 534.81" class="ink" stroke="#e59389" style="stroke-width: 1.05; opacity: .38; stroke: #e59389" />
+    </g>
+    <text x="1065" y="572" transform="rotate(-0.47 1065 572)">b.text (edited)</text>
+    <text x="1065" y="609" class="small changed" transform="rotate(-0.72 1065 609)">65 words</text>
+  </g>
+  <g id="legend">
+    <path d="M 380 678 Q 394 675 410 678" fill="none" stroke="#8bc49a" stroke-width="2.8" stroke-linecap="round" />
+    <text x="493" y="684" class="small" transform="rotate(0.04 493 684)">same value</text>
+    <path d="M 640 678 Q 654 675 670 678" fill="none" stroke="#e59389" stroke-width="2.8" stroke-linecap="round" />
+    <text x="770" y="684" class="small" transform="rotate(-0.24 770 684)">changed value</text>
+  </g>
+</svg>
